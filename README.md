@@ -22,16 +22,15 @@ Or install the Auron SMS Comonent directly from [nuget](https://www.nuget.org/pa
 # Examples
 
 This repository contains a large number of working examples on how to use the Auron SMS Component in:
-
-    ASP Classic / ASP.Net
-    Coldfusion
-    Delphi
-    Javascript
-    PHP
-    Powershell
-    VBA
-    VBScript
-    Visual Basic 6
-    Visual Basic .Net
-    C#
-    C++
+ * ASP Classic / ASP.Net
+ * Coldfusion
+ * Delphi
+ * Javascript
+ * PHP
+ * Powershell
+ * VBA
+ * VBScript
+ * Visual Basic 6
+ * Visual Basic .Net
+ * C#
+* C++
