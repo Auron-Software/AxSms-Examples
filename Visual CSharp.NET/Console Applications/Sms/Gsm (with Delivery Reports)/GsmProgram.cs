@@ -1,0 +1,200 @@
+﻿//-----------------------------------------------------------------------
+// <copyright file="GsmProgram.cs" company="Auron">
+//     Copyright (c) Auron Software - www.auronsoftware.com
+// </copyright>
+//-----------------------------------------------------------------------
+
+namespace GsmProgram
+{
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+    using AxSms;
+
+    class GsmProgram
+    {       
+        static void Main(string[] args)
+        {
+            AxSms.Gsm objGsm = new AxSms.Gsm();
+            AxSms.Message objSmsMessage = new AxSms.Message();
+            AxSms.Constants objSmsConstants = new AxSms.Constants();
+            GsmDeliveryReport objStatusReport = null;
+            string strReference, strDevice;
+
+            // A license key is required to unlock this component after the trial period has expired.
+            // Assign the LicenseKey property every time a new instance of this component is created (see code below). 
+            // Alternatively, the LicenseKey property can be set automatically. This requires the license key to be stored in the registry.
+            // For details, see manual, chapter "Product Activation".
+            /*
+            objGsm.LicenseKey = "XXXXX-XXXXX-XXXXX";
+            */
+
+            Console.WriteLine("Auron SMS Component {0}\nBuild: {1}\nModule: {2}\nLicense Status: {3}\nLicense Key: {4}\n", 
+                objGsm.Version, objGsm.Build, objGsm.Module, objGsm.LicenseStatus, objGsm.LicenseKey);
+
+            // Set Logfile (optional, for debugging purposes)
+            objGsm.LogFile = Path.GetTempPath() + "Gsm.log";
+            Console.WriteLine("Log file used: {0}\n", objGsm.LogFile);
+
+            if ((strDevice = InputDeviceName(objGsm)) == string.Empty)
+            {
+                Console.WriteLine("Press <ENTER> to continue.");
+                Console.ReadLine();
+                return;
+            }
+
+            objGsm.Open(strDevice, string.Empty, 0);
+            Console.WriteLine("Open, result: " + objGsm.LastError + " (" + objGsm.GetErrorDescription(objGsm.LastError) + ")");
+            if (objGsm.LastError == 36101) // 36101 means: modem requires pin code, see also: www.auronsoftware.com/kb/api-error-codes/
+            {
+                objGsm.Open(strDevice, ReadInput("Enter PIN code", false), 0);
+                Console.WriteLine("Open, result: " + objGsm.LastError + " (" + objGsm.GetErrorDescription(objGsm.LastError) + ")");       
+            }
+
+            if (objGsm.LastError != 0)
+            {
+                Console.WriteLine("Press <ENTER> to continue.");
+                Console.ReadLine();
+                return;
+            }
+
+            // Message settings
+            objSmsMessage.ToAddress = ReadInput("Enter recipient: ", false);
+            objSmsMessage.Body = ReadInput("Enter message body: ", false);
+            objSmsMessage.RequestDeliveryReport = ReadYesNo("Do you want a DeliveryReport report (y/n)? ");
+            
+            bool bSearchDeliveryReport = objSmsMessage.RequestDeliveryReport;
+            
+            // Send the message
+            objGsm.SendSms(objSmsMessage, objSmsConstants.MULTIPART_TRUNCATE, 0);
+            Console.WriteLine("SendSms, result: " + objGsm.LastError + " (" + objGsm.GetErrorDescription(objGsm.LastError) + ")");
+            if (objGsm.LastError != 0)
+            {
+                Console.WriteLine("Press <ENTER> to continue.");
+                Console.ReadLine();
+                objGsm.Close();
+                return;
+            }
+
+            // The message reference is set by the objGsm component on sending a message. 
+            // Multipart messages have the references ',' seperated.
+            // Use the message reference to match with a delivery report.
+            strReference = objSmsMessage.Reference;
+            Console.WriteLine("Message reference (can be used with status reports): " + strReference);
+
+            // Status Report
+            while (bSearchDeliveryReport)
+            {
+                // Receive gets a list of SMS messages and delivery reports from the GSM device.
+                objGsm.Receive(objSmsConstants.GSM_MESSAGESTATE_ALL, false, objSmsConstants.GSM_STORAGETYPE_ALL, 25000);
+                Console.WriteLine("Receive, result: " + objGsm.LastError + " (" + objGsm.GetErrorDescription(objGsm.LastError) + ")");
+
+                if (objGsm.LastError != 0) break;
+
+                // Iterate over all delivery reports
+                objStatusReport = objGsm.GetFirstReport();
+                while (objGsm.LastError == 0)
+                {
+                    if (objStatusReport.Reference == strReference)
+                    {   // Match found, this is the status for our SMS message.
+                        bSearchDeliveryReport = false;
+                        Console.WriteLine("Delivery Report {0} received!", objStatusReport.Reference);
+                        Console.WriteLine("Status: {0}", objSmsConstants.GsmStatusToString(objStatusReport.Status));
+
+                        objGsm.DeleteReport(objStatusReport);
+                        Console.WriteLine("DeleteReport, result: " + objGsm.LastError + " (" + objGsm.GetErrorDescription(objGsm.LastError) + ")");
+                        break;
+                    }
+                    else
+                        objStatusReport = objGsm.GetNextReport();                        
+                }
+
+                Console.WriteLine("Delivery report not found yet.");
+                Thread.Sleep(3000);                
+            }
+
+            // Close the GSM device so other applications can use it.
+            objGsm.Close();
+            Console.WriteLine("Ready.");
+            Console.WriteLine("Press <ENTER> to continue.");
+            Console.ReadLine();
+        }
+
+        static private bool ReadYesNo(string strTitle)
+        {
+            string strInput;
+            Console.Write(strTitle);
+            strInput = Console.ReadLine();
+            Console.WriteLine();
+            return strInput.Length > 0 && (strInput[0] == 'y' || strInput[0] == 'Y');
+        }
+
+        static private string ReadInput(string strTitle, bool bAllowEmpty)
+        {
+            string strInput, strReturn = string.Empty;
+
+            Console.WriteLine(strTitle);
+            do
+            {
+                Console.Write("  > ");
+                strInput = Console.ReadLine();
+                if (strInput.Length > 1)
+                    strReturn = strInput;
+            } while (strReturn == string.Empty && !bAllowEmpty);
+
+            return strReturn;
+        }
+
+        static private string InputDeviceName(AxSms.Gsm objGsm)
+        {
+            string strInput, strDevice, strPort = string.Empty;
+            string strMessage = string.Empty;
+            int i = 0;
+            var lsDeviceNames = new List<string>();
+
+            strMessage += "Select a device: ";
+
+            // Build a list of TAPI devices
+            strDevice = objGsm.FindFirstDevice();
+            while (objGsm.LastError == 0)
+            {
+                strMessage += "\r\n  " + (i).ToString() + ": " + strDevice;
+                lsDeviceNames.Add(strDevice);
+                strDevice = objGsm.FindNextDevice();
+                i++;
+            }
+
+            // Build a list of COM ports
+            strPort = objGsm.FindFirstPort();
+            while (objGsm.LastError == 0)
+            {
+                strMessage += "\r\n  " + (i).ToString() + ": " + strPort;
+                lsDeviceNames.Add(strPort);
+                strPort = objGsm.FindNextPort();
+                i++;
+            }
+
+            strDevice = string.Empty;
+
+            if (lsDeviceNames.Count == 0)
+                Console.WriteLine("No devices or COM ports where found.");
+            else
+            {
+                Console.WriteLine(strMessage);
+
+                while (strDevice == string.Empty)
+                {
+                    Console.Write("  > ");
+                    strInput = Console.ReadLine();
+
+                    int iDevice = int.TryParse(strInput, out iDevice) ? iDevice : 0;
+                    if (iDevice > lsDeviceNames.Count - 1) iDevice = 0;
+                    strDevice = lsDeviceNames[iDevice];
+                }
+                Console.WriteLine("  Selected device: " + strDevice + "\r\n");
+            }
+            return strDevice;
+        }
+    }
+}

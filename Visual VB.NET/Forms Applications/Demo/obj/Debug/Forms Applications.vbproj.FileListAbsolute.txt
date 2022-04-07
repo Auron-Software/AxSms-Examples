@@ -1,0 +1,27 @@
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Forms Applications.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\bin\Debug\Any CPU\Demo.exe
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\bin\Debug\Any CPU\Demo.pdb
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\bin\Debug\Any CPU\Demo.xml
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmDemo.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmGsm.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmGsmReceiveOptions.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmHttp.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmHttpXml.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmLicensing.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmLicensingSerial.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmGsmAdvanced.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmSmpp.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmSmppAdvanced.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmSmppSendAdvanced.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmSmppServer.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmSmppTlv.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmsnpp.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.frmUssd.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Forms Applications.vbproj.GenerateResource.Cache
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.exe
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.xml
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Demo.pdb
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\obj\Debug\Forms Applications.vbprojResolveAssemblyReference.cache
+G:\AxSms\Samples\Visual VB.NET\Forms Applications\Demo\bin\Debug\Any CPU\Demo.exe.config

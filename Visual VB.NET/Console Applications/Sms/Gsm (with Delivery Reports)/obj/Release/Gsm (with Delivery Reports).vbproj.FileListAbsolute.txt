@@ -1,0 +1,13 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\Any CPU\GsmProgram.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\Any CPU\GsmProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\Any CPU\GsmProgram.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\Any CPU\GsmProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\Any CPU\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\Gsm (with Delivery Reports).vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\GsmProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\Gsm (with Delivery Reports).vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\Gsm (with Delivery Reports).vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\GsmProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\GsmProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\Release\GsmProgram.pdb

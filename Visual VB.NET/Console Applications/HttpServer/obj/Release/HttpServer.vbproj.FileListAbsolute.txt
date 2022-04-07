@@ -1,0 +1,13 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\bin\Release\HttpServer.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\bin\Release\HttpServer.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\bin\Release\HttpServer.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\bin\Release\HttpServer.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.vbprojAssemblyReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\HttpServer\obj\Release\HttpServer.pdb

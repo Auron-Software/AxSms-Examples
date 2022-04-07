@@ -1,0 +1,7 @@
+﻿  GsmProgram.cpp
+  stdafx.cpp
+  Generating code
+  Finished generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 63 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Gsm.vcxproj -> G:\AxSms\Samples\Visual C++\Console Applications\Sms\Gsm\.\Release32\Gsm.exe

@@ -1,0 +1,14 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\bin\x64\Release\Smpp Server.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\bin\x64\Release\Smpp Server.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\bin\x64\Release\Smpp Server.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\bin\x64\Release\Smpp Server.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\bin\x64\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.vbprojAssemblyReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\SmppServerProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Smpp Server\obj\x64\Release\Smpp Server.pdb

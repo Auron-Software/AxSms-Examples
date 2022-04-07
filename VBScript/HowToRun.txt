@@ -1,0 +1,4 @@
+There are two ways of running these samples: 
+1. (Recommended) Open a console window and brows to the sample directory. 
+   Start each sample by running 'cscript samplename.vbs'
+2. From the explorer window by double clicking the samples.

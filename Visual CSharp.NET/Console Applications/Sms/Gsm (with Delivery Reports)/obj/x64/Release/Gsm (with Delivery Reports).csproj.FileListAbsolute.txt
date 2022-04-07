@@ -1,0 +1,7 @@
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\x64\GsmProgram.exe.config
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\x64\GsmProgram.exe
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\bin\Release\x64\Interop.AxSms.dll
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\x64\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\x64\Release\Gsm (with Delivery Reports).csproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\x64\Release\Gsm (with Delivery Reports).csproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm (with Delivery Reports)\obj\x64\Release\GsmProgram.exe

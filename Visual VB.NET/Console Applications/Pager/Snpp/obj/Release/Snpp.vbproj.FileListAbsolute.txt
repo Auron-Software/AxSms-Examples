@@ -1,0 +1,13 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\bin\Release\Any CPU\SnppProgram.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\bin\Release\Any CPU\SnppProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\bin\Release\Any CPU\SnppProgram.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\bin\Release\Any CPU\SnppProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\bin\Release\Any CPU\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\Snpp.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\SnppProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\Snpp.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\Snpp.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\SnppProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\SnppProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Pager\Snpp\obj\Release\SnppProgram.pdb

@@ -1,0 +1,14 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\bin\Release\x64\GsmProgram.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\bin\Release\x64\GsmProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\bin\Release\x64\GsmProgram.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\bin\Release\x64\GsmProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\bin\Release\x64\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\Gsm.vbprojAssemblyReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\Gsm.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\GsmProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\Gsm.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\Gsm.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\GsmProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\GsmProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\Gsm\obj\x64\Release\GsmProgram.pdb

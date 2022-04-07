@@ -1,0 +1,13 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\Ussd.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\Ussd.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\Ussd.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.pdb

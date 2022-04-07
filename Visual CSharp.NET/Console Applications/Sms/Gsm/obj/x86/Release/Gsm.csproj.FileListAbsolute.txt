@@ -1,0 +1,10 @@
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\bin\Release\x86\GsmProgram.exe.config
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\bin\Release\x86\GsmProgram.exe
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\bin\Release\x86\GsmProgram.pdb
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\bin\Release\x86\Interop.AxSms.dll
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\Gsm.csprojAssemblyReference.cache
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\Gsm.csproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\Gsm.csproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\GsmProgram.exe
+G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Gsm\obj\x86\Release\GsmProgram.pdb

@@ -1,0 +1,13 @@
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\bin\Release\x86\HttpXmlProgram.exe.config
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\bin\Release\x86\HttpXmlProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\bin\Release\x86\HttpXmlProgram.pdb
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\bin\Release\x86\HttpXmlProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\bin\Release\x86\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\Interop.AxSms.dll
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXml.vbproj.ResolveComReference.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXmlProgram.Resources.resources
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXml.vbproj.GenerateResource.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXml.vbproj.CoreCompileInputs.cache
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXmlProgram.exe
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXmlProgram.xml
+G:\AxSms\Samples\Visual VB.NET\Console Applications\Sms\HttpXml\obj\x86\Release\HttpXmlProgram.pdb

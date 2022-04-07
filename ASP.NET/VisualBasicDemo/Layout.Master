@@ -1,0 +1,41 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Layout.master.vb" Inherits="VisualBasicDemo.Layout" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<title>ActiveXperts SMS Component Demo</title>
+	<link rel="Stylesheet" type="text/css" href="css/Layout.css" />
+</head>
+<body>
+	<div class="maincontainer">
+		<div class="header">
+			<div class="stroke"></div>
+			<div class="logo"></div>
+		</div><!-- /header -->
+		<div class="menu">  
+			| <a href="Default.aspx">Home</a> 
+			| <a href="frmgsm.aspx">GSM</a> 
+			| <a href="frmhttp.aspx">HTTP</a> 
+			| <a href="frmhttpxml.aspx">HTTP/XML</a> 
+			| <a href="frmsnpp.aspx">Pager SNPP</a> 
+			| <a href="frmsmpp.aspx">SMPP</a> 
+			| <a href="frmussd.aspx">USSD Commands</a> |   
+		</div><!-- /menu -->  
+		<div class="container">
+			<asp:ContentPlaceHolder ID="container" runat="server">
+			</asp:ContentPlaceHolder>
+		</div><!-- container -->
+		<div class="footer">
+			<div class="icon"></div>
+			<p>
+				                © <a href="http://activexperts.com" target="_blank">Active<font color="#CCC000000">X</font>perts Software B.V.</a> All rights reserved.
+				<small>
+					<a href="http://activexperts.com/activexperts/contact" target="_blank">Contact Us</a> |
+					<a href="http://activexperts.com/activexperts/termsofuse" target="_blank">Terms of Use</a> |
+					<a href="http://activexperts.com/activexperts/privacypolicy" target="_blank">Privacy Policy</a>
+				</small>
+			</p>
+		</div><!-- /footer -->
+	</div><!-- /maincontainer -->
+</body>
+</html>

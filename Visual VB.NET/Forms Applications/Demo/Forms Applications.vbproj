@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14D62978-3532-4593-A878-4C3803E05DD3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Demo.My.MyApplication</StartupObject>
+    <RootNamespace>Demo</RootNamespace>
+    <AssemblyName>Demo</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\Any CPU\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\Any CPU\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\x86\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\x86\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\x64\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Release\x64\</OutputPath>
+    <DocumentationFile>Demo.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAndroid.Designer.vb">
+      <DependentUpon>frmAndroid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAndroid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemo.Designer.vb">
+      <DependentUpon>frmDemo.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGsm.Designer.vb">
+      <DependentUpon>frmGsm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGsm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGsmReceiveOptions.Designer.vb">
+      <DependentUpon>frmGsmReceiveOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGsmReceiveOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHttp.Designer.vb">
+      <DependentUpon>frmHttp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHttp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHttpServer.Designer.vb">
+      <DependentUpon>frmHttpServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHttpServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHttpXml.Designer.vb">
+      <DependentUpon>frmHttpXml.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHttpXml.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicensing.Designer.vb">
+      <DependentUpon>frmLicensing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicensing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicensingSerial.Designer.vb">
+      <DependentUpon>frmLicensingSerial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicensingSerial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGsmAdvanced.Designer.vb">
+      <DependentUpon>frmGsmAdvanced.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGsmAdvanced.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmpp.Designer.vb">
+      <DependentUpon>frmSmpp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmpp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmppAdvanced.Designer.vb">
+      <DependentUpon>frmSmppAdvanced.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmppAdvanced.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmppSendAdvanced.Designer.vb">
+      <DependentUpon>frmSmppSendAdvanced.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmppSendAdvanced.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmppServer.Designer.vb">
+      <DependentUpon>frmSmppServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmppServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSmppTlv.Designer.vb">
+      <DependentUpon>frmSmppTlv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSmppTlv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSnpp.Designer.vb">
+      <DependentUpon>frmSnpp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSnpp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUssd.Designer.vb">
+      <DependentUpon>frmUssd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUssd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SMPPServerMessage.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmAndroid.resx">
+      <DependentUpon>frmAndroid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDemo.resx">
+      <DependentUpon>frmDemo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGsm.resx">
+      <DependentUpon>frmGsm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGsmReceiveOptions.resx">
+      <DependentUpon>frmGsmReceiveOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHttp.resx">
+      <DependentUpon>frmHttp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHttpServer.resx">
+      <DependentUpon>frmHttpServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHttpXml.resx">
+      <DependentUpon>frmHttpXml.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicensing.resx">
+      <DependentUpon>frmLicensing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicensingSerial.resx">
+      <DependentUpon>frmLicensingSerial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGsmAdvanced.resx">
+      <DependentUpon>frmGsmAdvanced.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmpp.resx">
+      <DependentUpon>frmSmpp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmppAdvanced.resx">
+      <DependentUpon>frmSmppAdvanced.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmppSendAdvanced.resx">
+      <DependentUpon>frmSmppSendAdvanced.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmppServer.resx">
+      <DependentUpon>frmSmppServer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSmppTlv.resx">
+      <DependentUpon>frmSmppTlv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSnpp.resx">
+      <DependentUpon>frmSnpp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUssd.resx">
+      <DependentUpon>frmUssd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxSms">
+      <Guid>{B00F4729-F464-4690-88A0-E059489AF063}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

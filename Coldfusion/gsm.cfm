@@ -1,0 +1,175 @@
+<cfobject type="com" Action="Create" class="AxSms.Gsm"      name="objGsm">
+<cfobject type="com" Action="Create" class="AxSms.Constants"  name="objSmsConstants">
+<cfobject type="com" Action="Create" class="AxSms.Message"    name="objSmsMessage">
+
+<cfscript>
+  strResult = "n/a";
+  objGsm.LogFile = "C:\Windows\Windows\Temp\Gsm.log";
+  
+  if (IsDefined("Form.btnSendMessage"))
+  {
+    strName = Form.ddlDevices;
+    strPincode = Form.txtPincode;
+    iDeviceSpeed = Form.ddlDeviceSpeed;	
+    
+    objGsm.clear();
+    objGsm.Open(strName, strPincode, iDeviceSpeed);
+    
+    if (objGsm.LastError != 0)
+    {
+      strResult = objGsm.LastError & ': ' & objGsm.GetErrorDescription(objGsm.LastError);
+    }
+    else
+    {
+      //Message Settings
+      objSmsMessage.Clear();
+      objSmsMessage.ToAddress = Form.txtToAddress;
+      objSmsMessage.Body = Form.txtBody;
+      objSmsMessage.BodyFormat = objSmsConstants.BODYFORMAT_TEXT;
+      
+      iMultipart = "";
+      if (IsDefined("Form.cbxMultipart"))
+      {
+        iMultipart = objSmsConstants.MULTIPART_ACCEPT;
+      }
+      else
+      {
+        iMultipart = objSmsConstants.MULTIPART_TRUNCATE;
+      }
+      
+      if (IsDefined("Form.cbxFlash"))
+      {
+        objSmsMessage.DataCoding = objSmsMessage.DataCoding Or objSmsConstants.DATACODING_FLASH;
+      }
+      
+      //Send the message ! 
+      obj = objSmsMessage;
+      objGsm.SendSms(obj, iMultipart, 10000);
+      objSmsMessage = obj;
+      
+      strMessageReference = objSmsMessage.Reference;
+      strResult = objGsm.LastError & ': ' & objGsm.GetErrorDescription(objGsm.LastError);
+      
+      objGsm.Close();
+    }
+  }
+</cfscript>
+
+<!--- HTML-CSS layout includes, no code there! --->
+<cfinclude template = "css/Header.html">
+<cfinclude template = "css/Menu.html">
+    <div class="container">
+      <h1>SMS Component Coldfusion GSM Sample</h1>
+      <hr />
+      <p>
+        This demo requires a GSM modem or GSM phone connected to your computer. A SIM card
+        is required in this GSM modem. The product works with almost all available GSM modems.
+      </p>
+      <form action="gsm.cfm" method="post">
+      <cfoutput>
+        <h2>SMS Component:</h2>
+        <h3>Build: #objGsm.Build#; Module: #objGsm.Module#</h3>
+        
+        <!-- Device -->
+        <label for="Devices">Device:</label>
+        <p>
+          <select id="Devices" name="ddlDevices">
+          <cfscript> 
+            strDevice = objGsm.FindFirstDevice();
+            
+            while (objGsm.LastError LTE 0)
+            {
+              WriteOutput('<option value="' & strDevice & '">' & strDevice & '</option>');
+              strDevice = objGsm.FindNextDevice();
+            }
+            
+            strDevice = objGsm.FindFirstPort();
+           while (objGsm.LastError LTE 0)
+            {
+              WriteOutput('<option value="' & strDevice & '">' & strDevice & '</option>');
+              strDevice = objGsm.FindNextPort();
+            }
+          </cfscript> 
+          </select>
+        </p>
+        
+        <!-- Device Speed -->
+        <label for="DeviceSpeed">Device Speed:</label>
+        <p>
+          <select id="DeviceSpeed" name="ddlDeviceSpeed">
+            <option value="0">Default</option>
+            <option value="110">110</option>
+            <option value="300">300</option>
+            <option value="600">600</option>
+            <option value="1200">1200</option>
+            <option value="2400">2400</option>
+            <option value="4800">4800</option>
+            <option value="9600">9600</option>
+            <option value="14400">14400</option>
+            <option value="19200">19200</option>
+            <option value="38400">38400</option>
+            <option value="56000">56000</option>
+            <option value="57600">57600</option>
+            <option value="64000">64000</option>
+            <option value="115200">115200</option>
+            <option value="128000">128000</option>
+            <option value="230400">230400</option>
+            <option value="256000">256000</option>
+            <option value="460800">460800</option>
+            <option value="921600">921600</option>
+          </select>
+          Only applies to direct ports, i.e. COM1, COM2, etc.
+        </p>
+        
+        <!-- Pincode -->
+        <label for="Pincode">Pincode:</label>
+        <p>
+          <input type="password" id="Pincode" name="txtPincode" />
+          Only required if SIM card has PIN code
+        </p>
+        
+        <!-- Empty row -->
+        <div class="clearRow"></div>
+        
+        <!-- ToAddress -->
+        <label for="ToAddress">ToAddress:</label>
+        <p>
+          <input type="text" id="ToAddress" name="txtToAddress" value="[ToAddress]" />
+          <a href="https://www.auronsoftware.com/knowledge-base/##sms-component" target="_blank">Recipient number format</a>
+        </p>
+        
+        <!-- Body, Multipart, Flash -->
+        <label for="Body">Body:</label>
+        <p>
+          <textarea id="Body" name="txtBody" style="height:55px;">Hello world send from Auron SMS Component!</textarea><br />
+          
+          <input type="checkbox" class="cbFix" id="Multipart" name="cbxMultipart" value="1" />
+          <label for="Multipart">Allow Multipart</label><br />
+          
+          <input type="checkbox" class="cbFix" id="Flash" name="cbxFlash" value="1" />
+          <label for="Flash">Flash</label>
+        </p>
+        
+        <!-- Empty row -->
+        <div class="clearRow"></div>
+        
+        <!-- Send button -->
+        <div class="clearLabel"></div>
+        <p>
+          <input type="submit" name="btnSendMessage" value="Send SMS Message!" />
+        </p>
+        
+        <!-- Result -->
+        <label for="Result"><b>Result:</b></label>
+        <p>
+          <input type="text" id="Result" name="txtResult" class="FullWidth Bold" value="#strResult#" />
+        </p>
+      </cfoutput>
+      </form>
+      <p>
+        This demo uses the Auron SMS Component, an <a href="https://www.auronsoftware.com" target="_blank">Auron Software</a> product.<br />
+        <a href="index.cfm">Back to main page</a>
+      </p>
+    </div><!-- /container -->
+<!--- HTML-CSS layout includes, no code there! --->
+<cfinclude template = "css/Footer.html">

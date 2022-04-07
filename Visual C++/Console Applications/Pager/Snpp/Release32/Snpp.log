@@ -1,0 +1,7 @@
+﻿  SnppProgram.cpp
+  stdafx.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  Finished generating code
+  All 122 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Snpp.vcxproj -> G:\AxSms\Samples\Visual C++\Console Applications\Pager\Snpp\.\Release32\Snpp.exe

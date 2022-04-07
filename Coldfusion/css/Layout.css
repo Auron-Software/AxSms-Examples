@@ -1,0 +1,220 @@
+﻿*
+{
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  background-image: url(img/body_bg.jpg);
+  background-repeat: repeat-x;
+  background-color: #DDD;
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;  
+}
+
+a
+{
+  color: #CC0000;
+  text-decoration: none;
+}
+a:hover
+{
+  text-decoration: underline;
+}
+
+p
+{
+  margin: 20px 0;
+  font-size: 8pt;
+}
+
+input[type=password], 
+input[type=text], 
+input[type=submit], 
+select, textarea 
+{
+  width: 350px;
+}
+
+.cbFix
+{
+   margin-top: 2px;
+   width: 15px;
+}
+
+.FullWidth
+{
+  width: 100%;
+}
+.Button
+{
+  margin: 10px 7px;
+  width: 450px; 
+  height: 40px;
+  font-weight: bold; 
+  padding-left: 22px; 
+  cursor: pointer;
+}
+.Bold
+{
+  font-weight: bold;
+}
+
+.maincontainer
+{
+  margin: 12px auto;
+  width: 960px;
+  background-color: #FFF;
+  border: solid 1px #666;
+}
+
+.header
+{
+  height: 84px;
+  width: 960px;
+  background-image: url(img/header.jpg);
+  background-position: right bottom;
+}
+.header .stroke
+{
+  height: 15px;
+  width: 958px;
+  margin: 1px;
+  background-color: #555;
+}
+.header .logo
+{
+  margin: 10px 0 0 5px;
+  height: 53px;
+  width: 290px;
+  background-image: url(img/auron_logo.gif);  
+}
+
+.menu
+{
+  height: 47px;
+  width: 100%;
+  background-image: url(img/menu_bg.jpg);
+  background-position: right;
+  text-align: center;
+  
+}
+.menu a
+{
+  font-size: 12px;  
+  color: #FFF;
+}
+.menu a:hover
+{
+  color: #CC0000;
+}
+
+.container
+{
+  margin: 0 12px;
+  width: 936px;  
+}
+.container h1
+{
+  margin-bottom: 5px;
+  color: #222;
+  font-size: 11pt;
+  font-weight: 700;
+}
+.container .content, .container form
+{
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  border: solid 1px #999;
+}
+.container .content h1, 
+.container form h2,
+.container form h3
+{
+  float: left;
+  margin: 2px 2px 2px 2px;
+  -margin-left: 1px;
+  height: 17px;   
+  padding: 5px;
+  background-color: #DDD;
+  text-align: left;
+  font-size: 10pt;
+}
+.container .content h1
+{
+  width: 922px;
+}
+.container form h2
+{
+  width: 195px;
+}
+.container form h3
+{
+  width: 715px;
+  margin-left: 0px;
+}
+.container form p
+{
+  float: left;
+  width: 715px;
+  margin: 2px;
+}
+.container form label,
+.container form .clearLabel
+{
+  float: left;
+  margin: 2px;
+  width: 200px;
+  padding-left: 5px;
+  font-size: 10pt;
+}
+
+table
+{
+  font-size: 10pt;
+}
+
+.container form p label
+{
+  float: none;
+  margin: 0;
+}
+.container form .clearRow
+{
+  float: left;
+  width: 100%;
+  height: 15px;
+}
+
+.footer
+{
+  margin-top: 50px;
+  height: 38px;
+  width: 100%;
+  background-image: url(img/footer_bg.jpg);
+  background-repeat: repeat-x;
+  background-color: #333;
+  border-top: solid 1px #000;
+}
+.footer .icon
+{
+  position: absolute;
+  margin: -22px 0 0 850px;
+  height: 48px;
+  width: 90px;
+  background-image: url(img/footer_icon.jpg);
+}
+.footer p
+{
+  margin: 12px 0 0 10px;
+  font-size: 8pt;
+}
+.footer p, .footer p a
+{
+  color: #FFF;
+}
+.footer p small
+{
+  margin-left: 10px;
+}
