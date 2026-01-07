@@ -21,6 +21,27 @@ Public Class frmDemo
   Private objFrmAndroid As frmAndroid = New frmAndroid
   Private objFrmHttpServer As frmHttpServer = New frmHttpServer
 
+  Private sExamplesRoot As String
+
+  Private Function GetInstallRoot() As String
+    Const subKey As String = "SOFTWARE\Auron\SMS Component"
+
+    Try
+      Using key As RegistryKey = Registry.LocalMachine.OpenSubKey(subKey)
+        If key IsNot Nothing Then
+          Dim value As Object = key.GetValue("InstallRoot")
+          If value IsNot Nothing Then
+            Return value.ToString()
+          End If
+        End If
+      End Using
+    Catch
+      ' Do nothing - swallow exception (as in original code)
+    End Try
+
+    Return ""
+  End Function
+
   Public Sub New()
     InitializeComponent()
 
@@ -31,6 +52,8 @@ Public Class frmDemo
 
     txtVersion.Text = String.Format("{0}; Build {1}; Module {2}", objGsm.Version, objGsm.Build, objGsm.Module)
 
+    Text = "Auron SMS Component - VB.NET Demo - " & objGsm.Build
+    sExamplesRoot = Path.Combine(GetInstallRoot(), "Samples")
   End Sub
 
   Private Sub btnGsm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGsm.Click
@@ -79,5 +102,14 @@ Public Class frmDemo
 
   Private Sub btnHttpServer_Click(sender As Object, e As EventArgs) Handles btnHttpServer.Click
     objFrmHttpServer.ShowDialog()
+  End Sub
+
+  Private Sub btnMoreExamples_Click(sender As Object, e As EventArgs) Handles btnMoreExamples.Click
+    Dim startInfo As New ProcessStartInfo() With {
+      .FileName = sExamplesRoot,
+      .UseShellExecute = True   ' Required in .NET Core / .NET 5+ (default is False)
+    }
+
+    Process.Start(startInfo)
   End Sub
 End Class

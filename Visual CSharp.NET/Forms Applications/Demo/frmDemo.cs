@@ -27,7 +27,35 @@ namespace Demo
     private frmAndroid objFrmAndroid;
     private frmHttpServer objFrmHttpServer;
 
-        public frmDemo()
+    private string sExamplesRoot;
+
+    private string GetInstallRoot()
+    {
+      const string subKey = @"SOFTWARE\Auron\SMS Component";
+
+      try
+      {
+        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(subKey))
+        {
+          if (key != null)
+          {
+            object value = key.GetValue("InstallRoot");
+            if (value != null)
+            {
+              return value.ToString();
+            }
+          }
+        }
+      }
+      catch
+      {
+        // do nothing..
+      }
+
+      return "";
+    }
+
+    public frmDemo()
     {
       InitializeComponent();
 
@@ -46,6 +74,8 @@ namespace Demo
 
       txtVersion.Text = string.Format("{0}; Build {1}; Module {2}", objGsm.Version, objGsm.Build, objGsm.Module);
 
+      Text = "Auron SMS Component - C# .NET Demo - " + objGsm.Build;      
+      sExamplesRoot = Path.Combine(new string[] { GetInstallRoot(), "Samples" });
     }
 
     private void llblUrlSmsToolkit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -106,6 +136,16 @@ namespace Demo
     private void btnHttpServer_Click(object sender, EventArgs e)
     {
       objFrmHttpServer.ShowDialog();
+    }
+
+    private void btnMoreExamples_Click(object sender, EventArgs e)
+    {
+      var startInfo = new ProcessStartInfo
+      {
+        FileName = sExamplesRoot,
+        UseShellExecute = true  // Important for .NET Core/.NET 5+ (default is false in newer .NET)
+      };
+      Process.Start(startInfo);
     }
   }
 }

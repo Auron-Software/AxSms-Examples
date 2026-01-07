@@ -61,6 +61,8 @@
       this.groupBox8 = new System.Windows.Forms.GroupBox();
       this.label10 = new System.Windows.Forms.Label();
       this.btnHttpServer = new System.Windows.Forms.Button();
+      this.btnMoreExamples = new System.Windows.Forms.Button();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.groupBox1.SuspendLayout();
       this.GroupBox5.SuspendLayout();
       this.GroupBox2.SuspendLayout();
@@ -70,6 +72,7 @@
       this.groupBox10.SuspendLayout();
       this.groupBox7.SuspendLayout();
       this.groupBox8.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // groupBox1
@@ -187,7 +190,7 @@
       // 
       // btnLicensing
       // 
-      this.btnLicensing.Location = new System.Drawing.Point(766, 450);
+      this.btnLicensing.Location = new System.Drawing.Point(766, 447);
       this.btnLicensing.Name = "btnLicensing";
       this.btnLicensing.Size = new System.Drawing.Size(152, 23);
       this.btnLicensing.TabIndex = 10;
@@ -373,11 +376,33 @@
       this.btnHttpServer.Text = "HTTP Server";
       this.btnHttpServer.Click += new System.EventHandler(this.btnHttpServer_Click);
       // 
+      // btnMoreExamples
+      // 
+      this.btnMoreExamples.Location = new System.Drawing.Point(608, 447);
+      this.btnMoreExamples.Name = "btnMoreExamples";
+      this.btnMoreExamples.Size = new System.Drawing.Size(152, 23);
+      this.btnMoreExamples.TabIndex = 53;
+      this.btnMoreExamples.Text = "&More Examples...";
+      this.btnMoreExamples.Click += new System.EventHandler(this.btnMoreExamples_Click);
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+      this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+      this.pictureBox1.Location = new System.Drawing.Point(472, 339);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(452, 77);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+      this.pictureBox1.TabIndex = 54;
+      this.pictureBox1.TabStop = false;
+      // 
       // frmDemo
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(936, 486);
+      this.Controls.Add(this.pictureBox1);
+      this.Controls.Add(this.btnMoreExamples);
       this.Controls.Add(this.groupBox8);
       this.Controls.Add(this.groupBox7);
       this.Controls.Add(this.txtVersion);
@@ -393,6 +418,7 @@
       this.Controls.Add(this.GroupBox2);
       this.Controls.Add(this.GroupBox3);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "frmDemo";
@@ -407,6 +433,7 @@
       this.groupBox10.ResumeLayout(false);
       this.groupBox7.ResumeLayout(false);
       this.groupBox8.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
 
         }
@@ -445,6 +472,8 @@
     internal System.Windows.Forms.GroupBox groupBox8;
     internal System.Windows.Forms.Label label10;
     internal System.Windows.Forms.Button btnHttpServer;
+    internal System.Windows.Forms.Button btnMoreExamples;
+    private System.Windows.Forms.PictureBox pictureBox1;
   }
 }
 

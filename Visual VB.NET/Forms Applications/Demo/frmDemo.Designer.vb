@@ -55,6 +55,8 @@ Partial Class frmDemo
         Me.groupBox8 = New System.Windows.Forms.GroupBox()
         Me.label10 = New System.Windows.Forms.Label()
         Me.btnHttpServer = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnMoreExamples = New System.Windows.Forms.Button()
         Me.groupBox6.SuspendLayout()
         Me.groupBox4.SuspendLayout()
         Me.groupBox1.SuspendLayout()
@@ -64,6 +66,7 @@ Partial Class frmDemo
         Me.groupBox10.SuspendLayout()
         Me.groupBox7.SuspendLayout()
         Me.groupBox8.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'groupBox6
@@ -132,7 +135,7 @@ Partial Class frmDemo
         '
         'btnLicensing
         '
-        Me.btnLicensing.Location = New System.Drawing.Point(768, 437)
+        Me.btnLicensing.Location = New System.Drawing.Point(772, 451)
         Me.btnLicensing.Name = "btnLicensing"
         Me.btnLicensing.Size = New System.Drawing.Size(152, 23)
         Me.btnLicensing.TabIndex = 9
@@ -356,11 +359,31 @@ Partial Class frmDemo
         Me.btnHttpServer.TabIndex = 0
         Me.btnHttpServer.Text = "HTTP Server"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(470, 347)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(454, 77)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 68
+        Me.PictureBox1.TabStop = False
+        '
+        'btnMoreExamples
+        '
+        Me.btnMoreExamples.Location = New System.Drawing.Point(614, 451)
+        Me.btnMoreExamples.Name = "btnMoreExamples"
+        Me.btnMoreExamples.Size = New System.Drawing.Size(152, 23)
+        Me.btnMoreExamples.TabIndex = 69
+        Me.btnMoreExamples.Text = "&More Examples..."
+        '
         'frmDemo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(936, 486)
+        Me.Controls.Add(Me.btnMoreExamples)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.groupBox8)
         Me.Controls.Add(Me.groupBox7)
         Me.Controls.Add(Me.txtVersion)
@@ -376,6 +399,7 @@ Partial Class frmDemo
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmDemo"
@@ -389,6 +413,7 @@ Partial Class frmDemo
         Me.groupBox10.ResumeLayout(False)
         Me.groupBox7.ResumeLayout(False)
         Me.groupBox8.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -424,4 +449,6 @@ Partial Class frmDemo
     Friend WithEvents groupBox8 As GroupBox
     Friend WithEvents label10 As Label
     Friend WithEvents btnHttpServer As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnMoreExamples As Button
 End Class
