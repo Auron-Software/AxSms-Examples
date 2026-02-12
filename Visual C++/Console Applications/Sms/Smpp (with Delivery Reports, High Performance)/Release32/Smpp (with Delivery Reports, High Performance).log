@@ -1,7 +1,0 @@
-﻿  SmppProgram.cpp
-  stdafx.cpp
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  Finished generating code
-  All 177 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Smpp (with Delivery Reports, High Performance).vcxproj -> G:\AxSms\Samples\Visual C++\Console Applications\Sms\Smpp (with Delivery Reports, High Performance)\.\Release32\Smpp (with Delivery Reports, High Performance).exe

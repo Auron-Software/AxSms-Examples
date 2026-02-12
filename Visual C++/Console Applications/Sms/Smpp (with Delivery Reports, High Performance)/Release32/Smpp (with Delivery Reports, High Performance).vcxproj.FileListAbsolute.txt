@@ -1,1 +1,0 @@
-G:\AxSms\Samples\Visual C++\Console Applications\Sms\Smpp (with Delivery Reports, High Performance)\Release32\Smpp (with Delivery Reports, High Performance).exe

@@ -1,9 +1,0 @@
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\bin\x64\Release\Multipart.exe.config
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\bin\x64\Release\Multipart.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\bin\x64\Release\Multipart.pdb
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\bin\x64\Release\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\obj\x64\Release\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\obj\x64\Release\Multipart.csproj.ResolveComReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\obj\x64\Release\Multipart.csproj.CoreCompileInputs.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\obj\x64\Release\Multipart.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Multipart\obj\x64\Release\Multipart.pdb

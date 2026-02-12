@@ -1,8 +1,0 @@
-G:\AxSms\Samples\ASP.NET\CSharpDemo\bin\CSharpDemo.dll
-G:\AxSms\Samples\ASP.NET\CSharpDemo\bin\CSharpDemo.pdb
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\CSharpDemo.csprojAssemblyReference.cache
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\Interop.AxSms.dll
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\CSharpDemo.csproj.ResolveComReference.cache
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\CSharpDemo.csproj.CoreCompileInputs.cache
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\CSharpDemo.dll
-G:\AxSms\Samples\ASP.NET\CSharpDemo\obj\x86\Release\CSharpDemo.pdb

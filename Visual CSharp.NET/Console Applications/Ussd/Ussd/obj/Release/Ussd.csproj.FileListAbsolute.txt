@@ -1,9 +1,0 @@
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.exe.config
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\UssdProgram.pdb
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\bin\Release\Any CPU\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\obj\Release\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\obj\Release\Ussd.csproj.ResolveComReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\obj\Release\Ussd.csproj.CoreCompileInputs.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Ussd\Ussd\obj\Release\UssdProgram.pdb

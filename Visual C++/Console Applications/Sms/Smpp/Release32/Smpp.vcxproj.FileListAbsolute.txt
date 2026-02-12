@@ -1,1 +1,0 @@
-G:\AxSms\Samples\Visual C++\Console Applications\Sms\Smpp\Release32\Smpp.exe

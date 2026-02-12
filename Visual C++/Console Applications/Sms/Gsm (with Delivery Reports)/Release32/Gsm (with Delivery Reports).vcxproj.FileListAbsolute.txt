@@ -1,1 +1,0 @@
-G:\AxSms\Samples\Visual C++\Console Applications\Sms\Gsm (with Delivery Reports)\Release32\Gsm (with Delivery Reports).exe

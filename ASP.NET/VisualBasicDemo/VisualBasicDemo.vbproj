@@ -11,7 +11,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>VisualBasicDemo</RootNamespace>
     <AssemblyName>VisualBasicDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>

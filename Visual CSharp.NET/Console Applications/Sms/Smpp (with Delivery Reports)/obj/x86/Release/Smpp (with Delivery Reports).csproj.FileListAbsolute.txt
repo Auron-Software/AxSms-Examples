@@ -1,9 +1,0 @@
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\bin\Release\x86\SmppProgram.exe.config
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\bin\Release\x86\SmppProgram.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\bin\Release\x86\SmppProgram.pdb
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\Smpp (with Delivery Reports).csprojAssemblyReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\Smpp (with Delivery Reports).csproj.ResolveComReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\Smpp (with Delivery Reports).csproj.CoreCompileInputs.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\SmppProgram.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\Sms\Smpp (with Delivery Reports)\obj\x86\Release\SmppProgram.pdb

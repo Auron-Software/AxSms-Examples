@@ -1,9 +1,0 @@
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\bin\Release\HttpServer.exe.config
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\bin\Release\HttpServer.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\bin\Release\HttpServer.pdb
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\HttpServer.csprojAssemblyReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\Interop.AxSms.dll
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\HttpServer.csproj.ResolveComReference.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\HttpServer.csproj.CoreCompileInputs.cache
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\HttpServer.exe
-G:\AxSms\Samples\Visual CSharp.NET\Console Applications\HttpServer\obj\Release\HttpServer.pdb

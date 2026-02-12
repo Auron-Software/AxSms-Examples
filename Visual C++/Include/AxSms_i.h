@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 7.00.0555 */
-/* at Sun Jun 19 23:40:22 2022
+ /* File created by MIDL compiler version 8.01.0628 */
+/* at Mon Jan 18 19:14:07 2038
  */
 /* Compiler settings for AxSms.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0628 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -16,12 +16,11 @@
 */
 /* @@MIDL_FILE_HEADING(  ) */
 
-#pragma warning( disable: 4049 )  /* more than 64k source lines */
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 475
+#define __REQUIRED_RPCNDR_H_VERSION__ 500
 #endif
 
 #include "rpc.h"
@@ -29,7 +28,7 @@
 
 #ifndef __RPCNDR_H_VERSION__
 #error this stub requires an updated version of <rpcndr.h>
-#endif // __RPCNDR_H_VERSION__
+#endif /* __RPCNDR_H_VERSION__ */
 
 #ifndef COM_NO_WINDOWS_H
 #include "windows.h"
@@ -43,101 +42,125 @@
 #pragma once
 #endif
 
+#ifndef DECLSPEC_XFGVIRT
+#if defined(_CONTROL_FLOW_GUARD_XFG)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
+#endif
+
 /* Forward Declarations */ 
 
 #ifndef __IConstants_FWD_DEFINED__
 #define __IConstants_FWD_DEFINED__
 typedef interface IConstants IConstants;
+
 #endif 	/* __IConstants_FWD_DEFINED__ */
 
 
 #ifndef __ITlv_FWD_DEFINED__
 #define __ITlv_FWD_DEFINED__
 typedef interface ITlv ITlv;
+
 #endif 	/* __ITlv_FWD_DEFINED__ */
 
 
 #ifndef __IMessage_FWD_DEFINED__
 #define __IMessage_FWD_DEFINED__
 typedef interface IMessage IMessage;
+
 #endif 	/* __IMessage_FWD_DEFINED__ */
 
 
 #ifndef __IGsmDeliveryReport_FWD_DEFINED__
 #define __IGsmDeliveryReport_FWD_DEFINED__
 typedef interface IGsmDeliveryReport IGsmDeliveryReport;
+
 #endif 	/* __IGsmDeliveryReport_FWD_DEFINED__ */
 
 
 #ifndef __IDialup_FWD_DEFINED__
 #define __IDialup_FWD_DEFINED__
 typedef interface IDialup IDialup;
+
 #endif 	/* __IDialup_FWD_DEFINED__ */
 
 
 #ifndef __IAndroid_FWD_DEFINED__
 #define __IAndroid_FWD_DEFINED__
 typedef interface IAndroid IAndroid;
+
 #endif 	/* __IAndroid_FWD_DEFINED__ */
 
 
 #ifndef __IGsm_FWD_DEFINED__
 #define __IGsm_FWD_DEFINED__
 typedef interface IGsm IGsm;
+
 #endif 	/* __IGsm_FWD_DEFINED__ */
 
 
 #ifndef __IHttpServer_FWD_DEFINED__
 #define __IHttpServer_FWD_DEFINED__
 typedef interface IHttpServer IHttpServer;
+
 #endif 	/* __IHttpServer_FWD_DEFINED__ */
 
 
 #ifndef __IHttp_FWD_DEFINED__
 #define __IHttp_FWD_DEFINED__
 typedef interface IHttp IHttp;
+
 #endif 	/* __IHttp_FWD_DEFINED__ */
 
 
 #ifndef __ISnpp_FWD_DEFINED__
 #define __ISnpp_FWD_DEFINED__
 typedef interface ISnpp ISnpp;
+
 #endif 	/* __ISnpp_FWD_DEFINED__ */
 
 
 #ifndef __ISmpp_FWD_DEFINED__
 #define __ISmpp_FWD_DEFINED__
 typedef interface ISmpp ISmpp;
+
 #endif 	/* __ISmpp_FWD_DEFINED__ */
 
 
 #ifndef __ISmppSession_FWD_DEFINED__
 #define __ISmppSession_FWD_DEFINED__
 typedef interface ISmppSession ISmppSession;
+
 #endif 	/* __ISmppSession_FWD_DEFINED__ */
 
 
 #ifndef __ISmppServer_FWD_DEFINED__
 #define __ISmppServer_FWD_DEFINED__
 typedef interface ISmppServer ISmppServer;
+
 #endif 	/* __ISmppServer_FWD_DEFINED__ */
 
 
 #ifndef __ITemplateWapPush_FWD_DEFINED__
 #define __ITemplateWapPush_FWD_DEFINED__
 typedef interface ITemplateWapPush ITemplateWapPush;
+
 #endif 	/* __ITemplateWapPush_FWD_DEFINED__ */
 
 
 #ifndef __ITemplatevCard_FWD_DEFINED__
 #define __ITemplatevCard_FWD_DEFINED__
 typedef interface ITemplatevCard ITemplatevCard;
+
 #endif 	/* __ITemplatevCard_FWD_DEFINED__ */
 
 
 #ifndef __IDemoAccount_FWD_DEFINED__
 #define __IDemoAccount_FWD_DEFINED__
 typedef interface IDemoAccount IDemoAccount;
+
 #endif 	/* __IDemoAccount_FWD_DEFINED__ */
 
 
@@ -1462,34 +1485,41 @@ EXTERN_C const IID IID_IConstants;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IConstantsVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IConstants * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IConstants * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IConstants * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IConstants * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IConstants * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IConstants * This,
             /* [in] */ REFIID riid,
@@ -1498,1472 +1528,1838 @@ EXTERN_C const IID IID_IConstants;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IConstants * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_BIND_TRANSMITTER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_BIND_TRANSMITTER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_BIND_TRANSCEIVER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_BIND_TRANSCEIVER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_BIND_RECEIVER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_BIND_RECEIVER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_VERSION_33)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_VERSION_33 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_VERSION_34)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_VERSION_34 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_VERSION_50)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_VERSION_50 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_UNKNOWN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_UNKNOWN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_INTERNATIONAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_INTERNATIONAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_NATIONAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_NATIONAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_NETWORK_SPECIFIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_NETWORK_SPECIFIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_SUBSCRIBER_NUMBER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_SUBSCRIBER_NUMBER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_TON_ALPHANUMERIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON_ALPHANUMERIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TON_ABBREVIATED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TON_ABBREVIATED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_UNKNOWN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_UNKNOWN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_ISDN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_ISDN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_DATA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_DATA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_TELEX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_TELEX )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_NATIONAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_NATIONAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_PRIVATE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_PRIVATE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_ERMES)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_ERMES )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_NPI_INTERNET)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_NPI_INTERNET )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_NPI_LAND_MOBILE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI_LAND_MOBILE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_MULTIPART_ACCEPT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MULTIPART_ACCEPT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_MULTIPART_TRUNCATE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MULTIPART_TRUNCATE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_MULTIPART_REJECT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MULTIPART_REJECT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_BODYFORMAT_TEXT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_BODYFORMAT_TEXT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_BODYFORMAT_HEX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_BODYFORMAT_HEX )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_DELIVERY_RECEIPT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_DELIVERY_RECEIPT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_DELIVERY_ACK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_DELIVERY_ACK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_MANUAL_ACK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_MANUAL_ACK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_CONVERSATION_ABORT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_CONVERSATION_ABORT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2ESME_INTERMEDIATE_DELIVERY_NOTIFY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2ESME_INTERMEDIATE_DELIVERY_NOTIFY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_MODE_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_MODE_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_MODE_STOREFORWARD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_MODE_STOREFORWARD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_MODE_DATAGRAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_MODE_DATAGRAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_MODE_FORWARD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_MODE_FORWARD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_TYPE_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_TYPE_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_TYPE_DELIVERY_ACK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_TYPE_DELIVERY_ACK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_TYPE_MANUAL_ACK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_TYPE_MANUAL_ACK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_FEAT_NOTHING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_FEAT_NOTHING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_FEAT_UDHI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_FEAT_UDHI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESM_2SMSC_FEAT_SRP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESM_2SMSC_FEAT_SRP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_DISABLED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_DISABLED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_INANDOUT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_INANDOUT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_INCOMING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_INCOMING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_OUTGOING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_OUTGOING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_ASCII)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_ASCII )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_OCTET_UNSPEC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_OCTET_UNSPEC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_LATIN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_LATIN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_JIS_KANJI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_JIS_KANJI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_CYRILLIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_CYRILLIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_LATIN_HEBREW)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_LATIN_HEBREW )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_PICTOGRAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_PICTOGRAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_ISO_2022_JP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_ISO_2022_JP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_EXTENDED_KANJI_JIS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_EXTENDED_KANJI_JIS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DATACODING_KS_C_5601)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DATACODING_KS_C_5601 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_PRIORITYFLAG_BULK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_PRIORITYFLAG_BULK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_PRIORITYFLAG_NORMAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_PRIORITYFLAG_NORMAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_PRIORITYFLAG_URGENT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_PRIORITYFLAG_URGENT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_PRIORITYFLAG_VERY_URGENT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_PRIORITYFLAG_VERY_URGENT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_AX_WAITRESP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_AX_WAITRESP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_ENROUTE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_ENROUTE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_DELIVERED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_DELIVERED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_EXPIRED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_EXPIRED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_DELETED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_DELETED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_UNDELIVERABLE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_UNDELIVERABLE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_ACCEPTED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_ACCEPTED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_UNKNOWN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_UNKNOWN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_REJECTED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_REJECTED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_AX_RESPERROR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_AX_RESPERROR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_AX_NOCREDITS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_AX_NOCREDITS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_AX_RESPTO)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_AX_RESPTO )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MESSAGESTATE_AX_RESPONDED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MESSAGESTATE_AX_RESPONDED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_CONNECTED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_CONNECTED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_DISCONNECTED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_DISCONNECTED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_BINDING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_BINDING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_BOUND_TX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_BOUND_TX )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_BOUND_RX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_BOUND_RX )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SESSIONSTATE_BOUND_TRX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SESSIONSTATE_BOUND_TRX )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DEST_ADDR_SUBUNIT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DEST_ADDR_SUBUNIT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DEST_NETWORK_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DEST_NETWORK_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DEST_BEARER_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DEST_BEARER_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DEST_TELEMATICS_ID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DEST_TELEMATICS_ID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_ADDR_SUBUNIT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_ADDR_SUBUNIT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_NETWORK_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_NETWORK_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_BEARER_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_BEARER_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_TELEMATICS_ID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_TELEMATICS_ID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_QOS_TIME_TO_LIVE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_QOS_TIME_TO_LIVE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_PAYLOAD_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_PAYLOAD_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_ADDITIONAL_STATUS_INFO_TEXT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_ADDITIONAL_STATUS_INFO_TEXT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_RECEIPTED_MESSAGE_ID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_RECEIPTED_MESSAGE_ID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MS_MSG_WAIT_FACILITIES)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MS_MSG_WAIT_FACILITIES )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_PRIVACY_INDICATOR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_PRIVACY_INDICATOR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_SUBADDRESS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_SUBADDRESS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DEST_SUBADDRESS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DEST_SUBADDRESS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_USER_MESSAGE_REFERENCE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_USER_MESSAGE_REFERENCE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_USER_RESPONSE_CODE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_USER_RESPONSE_CODE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SOURCE_PORT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SOURCE_PORT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DESTINATION_PORT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DESTINATION_PORT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SAR_MSG_REF_NUM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SAR_MSG_REF_NUM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_LANGUAGE_INDICATOR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_LANGUAGE_INDICATOR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SAR_TOTAL_SEGMENTS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SAR_TOTAL_SEGMENTS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SAR_SEGMENT_SEQNUM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SAR_SEGMENT_SEQNUM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SC_INTERFACE_VERSION)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SC_INTERFACE_VERSION )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_CALLBACK_NUM_PRES_IND)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_CALLBACK_NUM_PRES_IND )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_CALLBACK_NUM_ATAG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_CALLBACK_NUM_ATAG )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_NUMBER_OF_MESSAGES)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_NUMBER_OF_MESSAGES )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_CALLBACK_NUM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_CALLBACK_NUM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DPF_RESULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DPF_RESULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SET_DPF)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SET_DPF )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MS_AVAILABILITY_STATUS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MS_AVAILABILITY_STATUS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_NETWORK_ERROR_CODE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_NETWORK_ERROR_CODE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MESSAGE_PAYLOAD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MESSAGE_PAYLOAD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DELIVERY_FAILURE_REASON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DELIVERY_FAILURE_REASON )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MORE_MESSAGES_TO_SEND)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MORE_MESSAGES_TO_SEND )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MESSAGE_STATE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MESSAGE_STATE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_CONGESTION_STATE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_CONGESTION_STATE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_USSD_SERVICE_OP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_USSD_SERVICE_OP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_DISPLAY_TIME)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_DISPLAY_TIME )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_SMS_SIGNAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_SMS_SIGNAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_MS_VALIDITY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_MS_VALIDITY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_ALERT_ON_MESSAGE_DELIVERY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_ALERT_ON_MESSAGE_DELIVERY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_ITS_REPLY_TYPE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_ITS_REPLY_TYPE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_TLV_ITS_SESSION_INFO)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_TLV_ITS_SESSION_INFO )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MULTIPARTMODE_UDH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MULTIPARTMODE_UDH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MULTIPARTMODE_UDH16BIT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MULTIPARTMODE_UDH16BIT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MULTIPARTMODE_SARTLV)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MULTIPARTMODE_SARTLV )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_MULTIPARTMODE_PAYLOADTLV)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_MULTIPARTMODE_PAYLOADTLV )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_LOGLEVEL_MINIMAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_LOGLEVEL_MINIMAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_LOGLEVEL_NORMAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_LOGLEVEL_NORMAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_LOGLEVEL_VERBOSE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_LOGLEVEL_VERBOSE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SUBMITMODE_SUBMITSM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SUBMITMODE_SUBMITSM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_SUBMITMODE_DATASM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_SUBMITMODE_DATASM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DELIVERMODE_DELIVERSM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DELIVERMODE_DELIVERSM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_DELIVERMODE_DATASM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_DELIVERMODE_DATASM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_INCHARSET)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_INCHARSET )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_OUTCHARSET)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_OUTCHARSET )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_USEGSMENCODING_INOUTCHARS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_USEGSMENCODING_INOUTCHARS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_IPVERSION_4)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_IPVERSION_4 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_IPVERSION_6)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_IPVERSION_6 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_IPVERSION_BOTH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_IPVERSION_BOTH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_CERTIFICATESTORE_LOCALMACHINE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_CERTIFICATESTORE_LOCALMACHINE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_CERTIFICATESTORE_CURRENTUSER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_CERTIFICATESTORE_CURRENTUSER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_ROK)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_ROK )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVMSGLEN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVMSGLEN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVCMDLEN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVCMDLEN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVCMDID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVCMDID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVBNDSTS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVBNDSTS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RALYBND)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RALYBND )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVPRTFLG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVPRTFLG )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVREGDLVFLG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVREGDLVFLG )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RSYSERR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RSYSERR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSRCADR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSRCADR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDSTADR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDSTADR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVMSGID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVMSGID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RBINDFAIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RBINDFAIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVPASWD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVPASWD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSYSID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSYSID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RCANCELFAIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RCANCELFAIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RREPLACEFAIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RREPLACEFAIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RMSGQFUL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RMSGQFUL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSERTYP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSERTYP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVNUMDESTS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVNUMDESTS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDLNAME)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDLNAME )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDESTFLAG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDESTFLAG )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSUBREP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSUBREP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVESMCLASS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVESMCLASS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RCNTSUBDL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RCNTSUBDL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RSUBMITFAIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RSUBMITFAIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSRCTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSRCTON )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSRCNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSRCNPI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDSTTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDSTTON )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDSTNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDSTNPI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSYSTYP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSYSTYP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVREPFLAG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVREPFLAG )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVNUMMSGS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVNUMMSGS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RTHROTTLED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RTHROTTLED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVSCHED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVSCHED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVEXPIRY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVEXPIRY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVDFTMSGID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVDFTMSGID )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RX_T_APPN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RX_T_APPN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RX_P_APPN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RX_P_APPN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RX_R_APPN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RX_R_APPN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RQUERYFAIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RQUERYFAIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVOPTPARSTREAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVOPTPARSTREAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_ROPTPARNOTALLWD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_ROPTPARNOTALLWD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVPARLEN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVPARLEN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RMISSINGOPTPARAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RMISSINGOPTPARAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RINVOPTPARAMVAL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RINVOPTPARAMVAL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RDELIVERYFAILURE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RDELIVERYFAILURE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_SMPP_ESME_RUNKNOWNERR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SMPP_ESME_RUNKNOWNERR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_MESSAGE_DELIVERED_SUCCESSFULLY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_MESSAGE_DELIVERED_SUCCESSFULLY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_FORWARDED_STATUS_UNKNOWN)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_FORWARDED_STATUS_UNKNOWN )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_REPLACED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_REPLACED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_CONGESTION_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_CONGESTION_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_RECIPIENT_BUSY_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_RECIPIENT_BUSY_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_NO_RESPONSE_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_NO_RESPONSE_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_SERVICE_REJECTED_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_SERVICE_REJECTED_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_QOS_NOT_AVAILABLE_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_QOS_NOT_AVAILABLE_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_RECIPIENT_ERROR_STILL_TRYING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_RECIPIENT_ERROR_STILL_TRYING )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_RPC_ERROR)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_RPC_ERROR )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_INCOMPATIBLE_DESTINATION)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_INCOMPATIBLE_DESTINATION )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_CONNECTION_REJECTED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_CONNECTION_REJECTED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_NOT_OBTAINABLE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_NOT_OBTAINABLE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_QOS_NOT_AVAILABLE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_QOS_NOT_AVAILABLE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_NO_INTERNETWORKING_AVAILABLE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_NO_INTERNETWORKING_AVAILABLE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_MESSAGE_EXPIRED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_MESSAGE_EXPIRED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_MESSAGE_DELETED_BY_SENDER)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_MESSAGE_DELETED_BY_SENDER )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_MESSAGE_DELETED_BY_SMSC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_MESSAGE_DELETED_BY_SMSC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STATUS_DOES_NOT_EXIST)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STATUS_DOES_NOT_EXIST )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STORAGETYPE_SIM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STORAGETYPE_SIM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STORAGETYPE_MEMORY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STORAGETYPE_MEMORY )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STORAGETYPE_COMBINED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STORAGETYPE_COMBINED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STORAGETYPE_STATUS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STORAGETYPE_STATUS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_STORAGETYPE_ALL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_STORAGETYPE_ALL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_REPLYPATH_EXISTS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_REPLYPATH_EXISTS )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_UDHI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_UDHI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_STATUS_REPORT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_STATUS_REPORT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_VALIDITY_NONE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_VALIDITY_NONE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_VALIDITY_RELATIVE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_VALIDITY_RELATIVE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_VALIDITY_ENHANCED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_VALIDITY_ENHANCED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_VALIDITY_ABSOLUTE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_VALIDITY_ABSOLUTE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_REJECT_DUPLICATES)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_REJECT_DUPLICATES )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_SUBMIT_SM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_SUBMIT_SM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_DELIVER_SM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_DELIVER_SM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_FO_STATUS_SM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_FO_STATUS_SM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DATACODING_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DATACODING_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DATACODING_8BIT_DATA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DATACODING_8BIT_DATA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DATACODING_UNICODE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DATACODING_UNICODE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_DATACODING_ME_SPECIFIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_DATACODING_ME_SPECIFIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_DATACODING_SIM_SPECIFIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_DATACODING_SIM_SPECIFIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_DATACODING_TE_SPECIFIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_DATACODING_TE_SPECIFIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DATACODING_FLASH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DATACODING_FLASH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_110)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_110 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_300)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_300 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_600)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_600 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_1200)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_1200 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_2400)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_2400 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_4800)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_4800 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_9600)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_9600 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_14400)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_14400 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_19200)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_19200 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_38400)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_38400 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_56000)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_56000 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_57600)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_57600 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_64000)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_64000 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_115200)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_115200 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_128000)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_128000 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_230400)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_230400 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_256000)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_256000 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_460800)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_460800 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_921600)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_921600 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_BAUDRATE_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_BAUDRATE_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGESTATE_RECEIVED_UNREAD)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGESTATE_RECEIVED_UNREAD )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGESTATE_RECEIVED_READ)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGESTATE_RECEIVED_READ )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGESTATE_STORED_UNSENT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGESTATE_STORED_UNSENT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGESTATE_STORED_SENT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGESTATE_STORED_SENT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGESTATE_ALL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGESTATE_ALL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGEFORMAT_PDU)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGEFORMAT_PDU )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGEFORMAT_TEXT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGEFORMAT_TEXT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_MESSAGEFORMAT_AUTO)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_MESSAGEFORMAT_AUTO )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_USERTAG)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_USERTAG )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_TOADDRESS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_TOADDRESS )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_FROMADDRESS)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_FROMADDRESS )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_BODY)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_BODY )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_BODYASHEX)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_BODYASHEX )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_BODYASBASE64)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_BODYASBASE64 )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_DELIVERYREPORT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_DELIVERYREPORT )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_TOADDRESSTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_TOADDRESSTON )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_TOADDRESSNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_TOADDRESSNPI )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_FROMADDRESSTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_FROMADDRESSTON )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_FROMADDRESSNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_FROMADDRESSNPI )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_PROTOCOLID)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_PROTOCOLID )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_UDHI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_UDHI )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_DATACODING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_DATACODING )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_HTTP_PLACEHOLDER_USERTAGSTRING)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HTTP_PLACEHOLDER_USERTAGSTRING )( 
             IConstants * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_PREFIXSMSC_ENABLED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_PREFIXSMSC_ENABLED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_PREFIXSMSC_DISABLED)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_PREFIXSMSC_DISABLED )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_PREFIXSMSC_AUTO)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_PREFIXSMSC_AUTO )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_TCPMODE_RAW)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_TCPMODE_RAW )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_TCPMODE_TELNET)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_TCPMODE_TELNET )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_GSM_TCPMODE_TELNET_WITH_COMCONTROL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GSM_TCPMODE_TELNET_WITH_COMCONTROL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_WAPPUSH_SIGNAL_NONE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WAPPUSH_SIGNAL_NONE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_WAPPUSH_SIGNAL_LOW)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WAPPUSH_SIGNAL_LOW )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_WAPPUSH_SIGNAL_MEDIUM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WAPPUSH_SIGNAL_MEDIUM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_WAPPUSH_SIGNAL_HIGH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WAPPUSH_SIGNAL_HIGH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_WAPPUSH_SIGNAL_DELETE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WAPPUSH_SIGNAL_DELETE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_PROVIDERTYPE_UCP)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_PROVIDERTYPE_UCP )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_PROVIDERTYPE_TAP_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_PROVIDERTYPE_TAP_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_PROVIDERTYPE_TAP_NOLF)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_PROVIDERTYPE_TAP_NOLF )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_PROVIDERTYPE_TAP_NOEOT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_PROVIDERTYPE_TAP_NOEOT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_DIALMODE_TONE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_DIALMODE_TONE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_DIALMODE_PULSE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_DIALMODE_PULSE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_DEVICESETTINGS_DEFAULT)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_DEVICESETTINGS_DEFAULT )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_DEVICESETTINGS_8N1)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_DEVICESETTINGS_8N1 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_DIALUP_DEVICESETTINGS_7E1)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DIALUP_DEVICESETTINGS_7E1 )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_BASIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_BASIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_TURKISH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_TURKISH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_PORTUGUESE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_PORTUGUESE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_SPANISH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_SPANISH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_BENGALI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_BENGALI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_GUJARATI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_GUJARATI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_HINDI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_HINDI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_KANNADA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_KANNADA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_MALAYALAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_MALAYALAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_ORIYA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_ORIYA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_PUNJABI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_PUNJABI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_TAMIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_TAMIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_TELUGU)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_TELUGU )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_LOCKINGSHIFT_URDU)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_LOCKINGSHIFT_URDU )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_BASIC)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_BASIC )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_TURKISH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_TURKISH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_SPANISH)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_SPANISH )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_PORTUGUESE)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_PORTUGUESE )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_BENGALI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_BENGALI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_GUJARATI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_GUJARATI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_HINDI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_HINDI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_KANNADA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_KANNADA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_MALAYALAM)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_MALAYALAM )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_ORIYA)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_ORIYA )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_PUNJABI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_PUNJABI )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_TAMIL)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_TAMIL )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_TELUGU)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_TELUGU )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, get_LANGUAGE_SINGLESHIFT_URDU)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LANGUAGE_SINGLESHIFT_URDU )( 
             IConstants * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppBindToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppBindToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppVersionToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppVersionToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, TonToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *TonToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, NpiToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *NpiToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, MultipartToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *MultipartToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, BodyformatToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *BodyformatToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppEsm2SmscToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppEsm2SmscToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppEsm2EsmeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppEsm2EsmeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppUseGsmEncodingToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppUseGsmEncodingToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppDataCodingToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppDataCodingToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppPriorityFlagToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppPriorityFlagToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppMessageStateToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppMessageStateToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppSessionStateToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppSessionStateToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppTlvToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppTlvToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppMultipartModeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppMultipartModeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppSubmitModeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppSubmitModeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, SmppEsmeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppEsmeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmStatusToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmStatusToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmStorageTypeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmStorageTypeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmFoToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmFoToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmDataCodingToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmDataCodingToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmBaudrateToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmBaudrateToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmMessageStateToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmMessageStateToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmMessageFormatToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmMessageFormatToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmPrefixSmscToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmPrefixSmscToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, WapPushSignalToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *WapPushSignalToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, DialupProviderTypeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DialupProviderTypeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, DialupDialModeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DialupDialModeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, DialupDeviceSettingsToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DialupDeviceSettingsToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, GsmTcpModeToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GsmTcpModeToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, LanguageLockingShiftToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *LanguageLockingShiftToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
             /* [retval][out] */ BSTR *strVal);
         
+        DECLSPEC_XFGVIRT(IConstants, LanguageSingleShiftToString)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *LanguageSingleShiftToString )( 
             IConstants * This,
             /* [in] */ LONG lVal,
@@ -7009,34 +7405,41 @@ EXTERN_C const IID IID_ITlv;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ITlvVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ITlv * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ITlv * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ITlv * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ITlv * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ITlv * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ITlv * This,
             /* [in] */ REFIID riid,
@@ -7045,68 +7448,91 @@ EXTERN_C const IID IID_ITlv;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ITlv * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ITlv, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ITlv * This);
         
+        DECLSPEC_XFGVIRT(ITlv, get_Tag)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Tag )( 
             ITlv * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_Tag)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Tag )( 
             ITlv * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_ValueAsString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValueAsString )( 
             ITlv * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_ValueAsString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValueAsString )( 
             ITlv * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_ValueAsHexString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValueAsHexString )( 
             ITlv * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_ValueAsHexString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValueAsHexString )( 
             ITlv * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_ValueAsInt32)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValueAsInt32 )( 
             ITlv * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_ValueAsInt32)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValueAsInt32 )( 
             ITlv * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_ValueAsInt16)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValueAsInt16 )( 
             ITlv * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_ValueAsInt16)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValueAsInt16 )( 
             ITlv * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_ValueAsInt8)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValueAsInt8 )( 
             ITlv * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ITlv, put_ValueAsInt8)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValueAsInt8 )( 
             ITlv * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ITlv, get_Length)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Length )( 
             ITlv * This,
             /* [retval][out] */ LONG *Val);
@@ -7455,34 +7881,41 @@ EXTERN_C const IID IID_IMessage;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IMessageVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IMessage * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IMessage * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMessage * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IMessage * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IMessage * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IMessage * This,
             /* [in] */ REFIID riid,
@@ -7491,330 +7924,418 @@ EXTERN_C const IID IID_IMessage;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IMessage * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IMessage, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IMessage * This);
         
+        DECLSPEC_XFGVIRT(IMessage, get_UserTag)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserTag )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_UserTag)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserTag )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ToAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ToAddress )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_ToAddress)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ToAddress )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_FromAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_FromAddress )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_FromAddress)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_FromAddress )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_Body)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Body )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_Body)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Body )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_RequestDeliveryReport)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestDeliveryReport )( 
             IMessage * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_RequestDeliveryReport)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_RequestDeliveryReport )( 
             IMessage * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ToAddressTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ToAddressTON )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_ToAddressTON)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ToAddressTON )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ToAddressNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ToAddressNPI )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_ToAddressNPI)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ToAddressNPI )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_FromAddressTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_FromAddressTON )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_FromAddressTON)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_FromAddressTON )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_FromAddressNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_FromAddressNPI )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_FromAddressNPI)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_FromAddressNPI )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ProtocolId)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProtocolId )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_ProtocolId)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProtocolId )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ValidityPeriod)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ValidityPeriod )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_ValidityPeriod)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ValidityPeriod )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_Reference)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Reference )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_Reference)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Reference )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_DataCoding)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DataCoding )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_DataCoding)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DataCoding )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_BodyFormat)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_BodyFormat )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_BodyFormat)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_BodyFormat )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_TotalParts)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TotalParts )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_PartNumber)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PartNumber )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ReceiveTime)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ReceiveTime )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_ReceiveTimeInSeconds)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ReceiveTimeInSeconds )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_HasUdh)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_HasUdh )( 
             IMessage * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_HasUdh)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_HasUdh )( 
             IMessage * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_Incomplete)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Incomplete )( 
             IMessage * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_MultipartRef)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultipartRef )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_LanguageLockingShift)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LanguageLockingShift )( 
             IMessage * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_LanguageLockingShift)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LanguageLockingShift )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_LanguageSingleShift)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LanguageSingleShift )( 
             IMessage * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_LanguageSingleShift)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LanguageSingleShift )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmFirstOctet)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmFirstOctet )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_GsmFirstOctet)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_GsmFirstOctet )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmSmscAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmSmscAddress )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmSmscAddressTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmSmscAddressTON )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmSmscAddressNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmSmscAddressNPI )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmMemoryIndex)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmMemoryIndex )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_GsmMemoryIndex)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_GsmMemoryIndex )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_GsmMemoryLocation)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_GsmMemoryLocation )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_GsmMemoryLocation)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_GsmMemoryLocation )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppPriority)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppPriority )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppPriority)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppPriority )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppServiceType)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppServiceType )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppServiceType)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppServiceType )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppEsmClass)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppEsmClass )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppEsmClass)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppEsmClass )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppIsDeliveryReport)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppIsDeliveryReport )( 
             IMessage * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppIsDeliveryReport)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppIsDeliveryReport )( 
             IMessage * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppStatus )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppStatus)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppStatus )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppError )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppError)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppError )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppCommandStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppCommandStatus )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppCommandStatus)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppCommandStatus )( 
             IMessage * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, put_SmppSequenceNumber)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SmppSequenceNumber )( 
             IMessage * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppSequenceNumber)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppSequenceNumber )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppServerSubmitDate)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppServerSubmitDate )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_SmppServerFinalDate)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmppServerFinalDate )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, get_UserTagString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserTagString )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, put_UserTagString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserTagString )( 
             IMessage * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IMessage, SmppAddTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppAddTlv )( 
             IMessage * This,
             /* [in] */ ITlv *Tlv);
         
+        DECLSPEC_XFGVIRT(IMessage, SmppGetFirstTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppGetFirstTlv )( 
             IMessage * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(IMessage, SmppGetNextTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppGetNextTlv )( 
             IMessage * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(IMessage, SmppGetTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppGetTlv )( 
             IMessage * This,
             /* [in] */ LONG lTag,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(IMessage, SmppDeleteTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SmppDeleteTlv )( 
             IMessage * This,
             /* [in] */ LONG lTag);
         
+        DECLSPEC_XFGVIRT(IMessage, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IMessage * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IMessage * This,
             /* [in] */ LONG Error,
             /* [retval][out] */ BSTR *strDescription);
         
+        DECLSPEC_XFGVIRT(IMessage, ToJSon)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ToJSon )( 
             IMessage * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IMessage, FromJSon)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FromJSon )( 
             IMessage * This,
             /* [in] */ BSTR Val);
@@ -8179,34 +8700,41 @@ EXTERN_C const IID IID_IGsmDeliveryReport;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IGsmDeliveryReportVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IGsmDeliveryReport * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IGsmDeliveryReport * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IGsmDeliveryReport * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IGsmDeliveryReport * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IGsmDeliveryReport * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IGsmDeliveryReport * This,
             /* [in] */ REFIID riid,
@@ -8215,92 +8743,121 @@ EXTERN_C const IID IID_IGsmDeliveryReport;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IGsmDeliveryReport * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IGsmDeliveryReport * This);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_Reference)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Reference )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_UserTag)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserTag )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, put_UserTag)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserTag )( 
             IGsmDeliveryReport * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_SmscAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmscAddress )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_SmscTime)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmscTime )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_SmscTimeInSeconds)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmscTimeInSeconds )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_DischargeTime)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DischargeTime )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_DischargeTimeInSeconds)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DischargeTimeInSeconds )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_MemoryIndex)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MemoryIndex )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_FirstOctet)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_FirstOctet )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_SmscTON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmscTON )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_SmscNPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmscNPI )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_TON)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TON )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_NPI)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NPI )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_Status)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Status )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_FromAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_FromAddress )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_MemoryLocation)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MemoryLocation )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, get_UserTagString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserTagString )( 
             IGsmDeliveryReport * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsmDeliveryReport, put_UserTagString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserTagString )( 
             IGsmDeliveryReport * This,
             /* [in] */ BSTR newVal);
@@ -8540,34 +9097,41 @@ EXTERN_C const IID IID_IDialup;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IDialupVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDialup * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDialup * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDialup * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IDialup * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IDialup * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IDialup * This,
             /* [in] */ REFIID riid,
@@ -8576,161 +9140,207 @@ EXTERN_C const IID IID_IDialup;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IDialup * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IDialup, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(IDialup, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(IDialup, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(IDialup, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             IDialup * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(IDialup, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             IDialup * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(IDialup, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             IDialup * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(IDialup, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             IDialup * This);
         
+        DECLSPEC_XFGVIRT(IDialup, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(IDialup, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             IDialup * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(IDialup, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             IDialup * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(IDialup, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IDialup * This);
         
+        DECLSPEC_XFGVIRT(IDialup, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IDialup * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(IDialup, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IDialup * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(IDialup, get_Device)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Device )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_Device)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Device )( 
             IDialup * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_DeviceSpeed)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeviceSpeed )( 
             IDialup * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_DeviceSpeed)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DeviceSpeed )( 
             IDialup * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_DeviceSettings)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeviceSettings )( 
             IDialup * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_DeviceSettings)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DeviceSettings )( 
             IDialup * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_DeviceInitString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeviceInitString )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_DeviceInitString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DeviceInitString )( 
             IDialup * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_DialMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DialMode )( 
             IDialup * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_DialMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DialMode )( 
             IDialup * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_ProviderDialString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderDialString )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_ProviderDialString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProviderDialString )( 
             IDialup * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_ProviderPassword)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderPassword )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_ProviderPassword)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProviderPassword )( 
             IDialup * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_ProviderType)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderType )( 
             IDialup * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_ProviderType)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProviderType )( 
             IDialup * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, get_ProviderResponse)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderResponse )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, get_AdvancedSettings)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AdvancedSettings )( 
             IDialup * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, put_AdvancedSettings)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AdvancedSettings )( 
             IDialup * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IDialup, GetDeviceCount)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetDeviceCount )( 
             IDialup * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, GetDevice)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetDevice )( 
             IDialup * This,
             LONG lIndex,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IDialup, Send)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Send )( 
             IDialup * This,
             IMessage *Message);
         
+        DECLSPEC_XFGVIRT(IDialup, ProviderLoadConfig)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ProviderLoadConfig )( 
             IDialup * This,
             BSTR FileName);
         
+        DECLSPEC_XFGVIRT(IDialup, ProviderSaveConfig)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ProviderSaveConfig )( 
             IDialup * This,
             BSTR FileName);
@@ -8993,34 +9603,41 @@ EXTERN_C const IID IID_IAndroid;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IAndroidVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAndroid * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAndroid * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAndroid * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IAndroid * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IAndroid * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IAndroid * This,
             /* [in] */ REFIID riid,
@@ -9029,124 +9646,161 @@ EXTERN_C const IID IID_IAndroid;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IAndroid * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             IAndroid * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(IAndroid, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             IAndroid * This);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             IAndroid * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             IAndroid * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(IAndroid, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             IAndroid * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(IAndroid, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IAndroid * This);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IAndroid * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(IAndroid, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IAndroid * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(IAndroid, Connect)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Connect )( 
             IAndroid * This,
             /* [in] */ BSTR Host,
             /* [defaultvalue][in] */ LONG Port);
         
+        DECLSPEC_XFGVIRT(IAndroid, Disconnect)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Disconnect )( 
             IAndroid * This);
         
+        DECLSPEC_XFGVIRT(IAndroid, SendSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SendSms )( 
             IAndroid * This,
             /* [in] */ IMessage *Message);
         
+        DECLSPEC_XFGVIRT(IAndroid, ReceiveSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReceiveSms )( 
             IAndroid * This,
             /* [retval][out] */ IMessage **Message);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_DeviceInfo)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeviceInfo )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_AppVersion)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AppVersion )( 
             IAndroid * This,
             /* [retval][out] */ BSTR *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_IsConnected)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsConnected )( 
             IAndroid * This,
             /* [retval][out] */ VARIANT_BOOL *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_SendSmsTimeoutMs)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SendSmsTimeoutMs )( 
             IAndroid * This,
             /* [retval][out] */ LONG *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_ConnectTimeoutMs)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ConnectTimeoutMs )( 
             IAndroid * This,
             /* [retval][out] */ LONG *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, get_CommandTimeoutMs)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CommandTimeoutMs )( 
             IAndroid * This,
             /* [retval][out] */ LONG *Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_SendSmsTimeoutMs)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SendSmsTimeoutMs )( 
             IAndroid * This,
             /* [in] */ LONG Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_ConnectTimeoutMs)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ConnectTimeoutMs )( 
             IAndroid * This,
             /* [in] */ LONG Value);
         
+        DECLSPEC_XFGVIRT(IAndroid, put_CommandTimeoutMs)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_CommandTimeoutMs )( 
             IAndroid * This,
             /* [in] */ LONG Value);
@@ -9355,7 +10009,7 @@ EXTERN_C const IID IID_IGsm;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Open( 
             /* [in] */ BSTR strName,
-            /* [defaultvalue][in] */ BSTR strPin = L"",
+            /* [defaultvalue][in] */ BSTR strPin = (BSTR)L"",
             /* [defaultvalue][in] */ LONG lBaudrate = 0) = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Close( void) = 0;
@@ -9509,34 +10163,41 @@ EXTERN_C const IID IID_IGsm;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IGsmVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IGsm * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IGsm * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IGsm * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IGsm * This,
             /* [in] */ REFIID riid,
@@ -9545,141 +10206,182 @@ EXTERN_C const IID IID_IGsm;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IGsm * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(IGsm, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             IGsm * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(IGsm, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             IGsm * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(IGsm, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             IGsm * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(IGsm, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IGsm, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(IGsm, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             IGsm * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(IGsm, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             IGsm * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(IGsm, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             IGsm * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(IGsm, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             IGsm * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(IGsm, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IGsm, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IGsm * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(IGsm, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IGsm * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(IGsm, FindFirstPort)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindFirstPort )( 
             IGsm * This,
             /* [retval][out] */ BSTR *strName);
         
+        DECLSPEC_XFGVIRT(IGsm, FindNextPort)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindNextPort )( 
             IGsm * This,
             /* [retval][out] */ BSTR *strName);
         
+        DECLSPEC_XFGVIRT(IGsm, FindFirstDevice)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindFirstDevice )( 
             IGsm * This,
             /* [retval][out] */ BSTR *strName);
         
+        DECLSPEC_XFGVIRT(IGsm, FindNextDevice)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindNextDevice )( 
             IGsm * This,
             /* [retval][out] */ BSTR *strName);
         
+        DECLSPEC_XFGVIRT(IGsm, Open)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Open )( 
             IGsm * This,
             /* [in] */ BSTR strName,
             /* [defaultvalue][in] */ BSTR strPin,
             /* [defaultvalue][in] */ LONG lBaudrate);
         
+        DECLSPEC_XFGVIRT(IGsm, Close)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Close )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IGsm, SendCommand)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SendCommand )( 
             IGsm * This,
             /* [in] */ BSTR strCommand);
         
+        DECLSPEC_XFGVIRT(IGsm, ReadResponse)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReadResponse )( 
             IGsm * This,
             /* [defaultvalue][in] */ LONG lTimeout,
             /* [retval][out] */ BSTR *strReponse);
         
+        DECLSPEC_XFGVIRT(IGsm, ResetCom)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ResetCom )( 
             IGsm * This);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Manufacturer)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Manufacturer )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Model)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Model )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_Revision)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Revision )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_SerialNr)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SerialNr )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_SendEnabled)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SendEnabled )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_ReceiveEnabled)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ReceiveEnabled )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, get_ReportEnabled)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ReportEnabled )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, SendSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SendSms )( 
             IGsm * This,
             /* [in] */ IMessage *Val,
@@ -9687,6 +10389,7 @@ EXTERN_C const IID IID_IGsm;
             /* [defaultvalue][in] */ LONG lTimeout,
             /* [retval][out] */ BSTR *pRef);
         
+        DECLSPEC_XFGVIRT(IGsm, Receive)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Receive )( 
             IGsm * This,
             /* [in] */ LONG lType,
@@ -9694,142 +10397,177 @@ EXTERN_C const IID IID_IGsm;
             /* [defaultvalue][in] */ LONG lStorageType,
             /* [defaultvalue][in] */ LONG lTimeout);
         
+        DECLSPEC_XFGVIRT(IGsm, GetFirstSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstSms )( 
             IGsm * This,
             /* [retval][out] */ IMessage **pVal);
         
+        DECLSPEC_XFGVIRT(IGsm, GetNextSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextSms )( 
             IGsm * This,
             /* [retval][out] */ IMessage **pVal);
         
+        DECLSPEC_XFGVIRT(IGsm, GetFirstReport)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstReport )( 
             IGsm * This,
             /* [retval][out] */ IGsmDeliveryReport **pVal);
         
+        DECLSPEC_XFGVIRT(IGsm, GetNextReport)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextReport )( 
             IGsm * This,
             /* [retval][out] */ IGsmDeliveryReport **pVal);
         
+        DECLSPEC_XFGVIRT(IGsm, DeleteSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DeleteSms )( 
             IGsm * This,
             /* [in] */ IMessage *pSms);
         
+        DECLSPEC_XFGVIRT(IGsm, DeleteReport)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DeleteReport )( 
             IGsm * This,
             /* [in] */ IGsmDeliveryReport *pReport);
         
+        DECLSPEC_XFGVIRT(IGsm, get_ExtractApplicationPort)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractApplicationPort )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_ExtractApplicationPort)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractApplicationPort )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_AssembleMultipart)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AssembleMultipart )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_AssembleMultipart)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AssembleMultipart )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_MessageMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MessageMode )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_MessageMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MessageMode )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_PrefixSmscMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PrefixSmscMode )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_PrefixSmscMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PrefixSmscMode )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_NetworkTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NetworkTimeout )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_NetworkTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_NetworkTimeout )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_InterCommandDelay)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_InterCommandDelay )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_InterCommandDelay)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_InterCommandDelay )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_InterCharacterDelay)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_InterCharacterDelay )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_InterCharacterDelay)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_InterCharacterDelay )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_WaitForNetwork)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WaitForNetwork )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_WaitForNetwork)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_WaitForNetwork )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_PreferredSmsc)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PreferredSmsc )( 
             IGsm * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_PreferredSmsc)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PreferredSmsc )( 
             IGsm * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_CommandTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CommandTimeout )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_CommandTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_CommandTimeout )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_KeepUnusedUdh)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_KeepUnusedUdh )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_KeepUnusedUdh)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_KeepUnusedUdh )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_OverrideFeatureCheck)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_OverrideFeatureCheck )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_OverrideFeatureCheck)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_OverrideFeatureCheck )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_ExtractLanguageShift)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractLanguageShift )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_ExtractLanguageShift)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractLanguageShift )( 
             IGsm * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_TcpMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TcpMode )( 
             IGsm * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IGsm, put_TcpMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_TcpMode )( 
             IGsm * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IGsm, get_IsOpen)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsOpen )( 
             IGsm * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
@@ -10260,34 +10998,41 @@ EXTERN_C const IID IID_IHttpServer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IHttpServerVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IHttpServer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IHttpServer * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IHttpServer * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IHttpServer * This,
             /* [in] */ REFIID riid,
@@ -10296,224 +11041,286 @@ EXTERN_C const IID IID_IHttpServer;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IHttpServer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             IHttpServer * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(IHttpServer, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             IHttpServer * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             IHttpServer * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(IHttpServer, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             IHttpServer * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(IHttpServer, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(IHttpServer, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IHttpServer * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_IsStarted)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsStarted )( 
             IHttpServer * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, AddUrl)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *AddUrl )( 
             IHttpServer * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IHttpServer, Startup)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Startup )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, Shutdown)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Shutdown )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, WaitForRequest)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *WaitForRequest )( 
             IHttpServer * This,
             /* [in] */ LONG Timeout);
         
+        DECLSPEC_XFGVIRT(IHttpServer, SendResponse)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SendResponse )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, ClearResponse)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ClearResponse )( 
             IHttpServer * This);
         
+        DECLSPEC_XFGVIRT(IHttpServer, SaveRequestBody)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveRequestBody )( 
             IHttpServer * This,
             /* [in] */ BSTR Path);
         
+        DECLSPEC_XFGVIRT(IHttpServer, LoadResponseBody)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *LoadResponseBody )( 
             IHttpServer * This,
             /* [in] */ BSTR Path,
             /* [in] */ VARIANT_BOOL bIsText);
         
+        DECLSPEC_XFGVIRT(IHttpServer, SetResponseBodyFromBase64)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetResponseBodyFromBase64 )( 
             IHttpServer * This,
             /* [in] */ BSTR b64string);
         
+        DECLSPEC_XFGVIRT(IHttpServer, GetRequestHeader)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetRequestHeader )( 
             IHttpServer * This,
             /* [in] */ BSTR Key,
             /* [retval][out] */ BSTR *Value);
         
+        DECLSPEC_XFGVIRT(IHttpServer, GetResponseHeader)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetResponseHeader )( 
             IHttpServer * This,
             /* [in] */ BSTR Key,
             /* [retval][out] */ BSTR *Value);
         
+        DECLSPEC_XFGVIRT(IHttpServer, SetResponseHeader)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetResponseHeader )( 
             IHttpServer * This,
             /* [in] */ BSTR Key,
             /* [in] */ BSTR Value);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_MaxRequestSizeBytes)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxRequestSizeBytes )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_MaxRequestSizeBytes)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxRequestSizeBytes )( 
             IHttpServer * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_NumRequestQueues)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NumRequestQueues )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseTimeoutMs)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseTimeoutMs )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestUrl)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestUrl )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestUrlPath)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestUrlPath )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestUrlHost)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestUrlHost )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestUrlQueryString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestUrlQueryString )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestVerb)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestVerb )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestBodyString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestBodyString )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestBodyBase64)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestBodyBase64 )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestBodyIsBinary)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestBodyIsBinary )( 
             IHttpServer * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestIp)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestIp )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestPort)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestPort )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_RequestHeaders)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestHeaders )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseCode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseCode )( 
             IHttpServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseReason)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseReason )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseHeaders)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseHeaders )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseBodyString)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseBodyString )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, get_ResponseBodyBase64)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ResponseBodyBase64 )( 
             IHttpServer * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_NumRequestQueues)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_NumRequestQueues )( 
             IHttpServer * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_ResponseTimeoutMs)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ResponseTimeoutMs )( 
             IHttpServer * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_ResponseCode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ResponseCode )( 
             IHttpServer * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_ResponseReason)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ResponseReason )( 
             IHttpServer * This,
             /* [in] */ BSTR Val);
         
+        DECLSPEC_XFGVIRT(IHttpServer, put_ResponseBodyString)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ResponseBodyString )( 
             IHttpServer * This,
             /* [in] */ BSTR Val);
@@ -10883,34 +11690,41 @@ EXTERN_C const IID IID_IHttp;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IHttpVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IHttp * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IHttp * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IHttp * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IHttp * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IHttp * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IHttp * This,
             /* [in] */ REFIID riid,
@@ -10919,198 +11733,251 @@ EXTERN_C const IID IID_IHttp;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IHttp * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IHttp, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(IHttp, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(IHttp, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             IHttp * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             IHttp * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(IHttp, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             IHttp * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(IHttp, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             IHttp * This);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(IHttp, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             IHttp * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(IHttp, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             IHttp * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(IHttp, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             IHttp * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LogDetails)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogDetails )( 
             IHttp * This,
             /* [retval][out] */ VARIANT_BOOL *Logfile);
         
+        DECLSPEC_XFGVIRT(IHttp, put_LogDetails)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogDetails )( 
             IHttp * This,
             /* [in] */ VARIANT_BOOL Logfile);
         
+        DECLSPEC_XFGVIRT(IHttp, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             IHttp * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(IHttp, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IHttp * This);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             IHttp * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(IHttp, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             IHttp * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(IHttp, Get)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Get )( 
             IHttp * This,
             /* [in] */ BSTR strUrl,
             /* [retval][out] */ BSTR *strResponse);
         
+        DECLSPEC_XFGVIRT(IHttp, Post)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Post )( 
             IHttp * This,
             /* [in] */ BSTR strUrl,
             /* [in] */ BSTR strPostBody,
             /* [retval][out] */ BSTR *strReponse);
         
+        DECLSPEC_XFGVIRT(IHttp, Download)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Download )( 
             IHttp * This,
             /* [in] */ BSTR strUrl,
             /* [in] */ BSTR strTargetPath);
         
+        DECLSPEC_XFGVIRT(IHttp, get_Url)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Url )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_Url)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Url )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_PostBody)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PostBody )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_PostBody)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PostBody )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, SendSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SendSms )( 
             IHttp * This,
             /* [in] */ IMessage *Sms,
             /* [defaultvalue][in] */ LONG MultipartFlag,
             /* [retval][out] */ BSTR *Reponse);
         
+        DECLSPEC_XFGVIRT(IHttp, get_WebAccount)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WebAccount )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_WebAccount)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_WebAccount )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_WebPassword)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WebPassword )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_WebPassword)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_WebPassword )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_ProxyServer)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProxyServer )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_ProxyServer)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProxyServer )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_ProxyAccount)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProxyAccount )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_ProxyAccount)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProxyAccount )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_ProxyPassword)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProxyPassword )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_ProxyPassword)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProxyPassword )( 
             IHttp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, get_RequestTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestTimeout )( 
             IHttp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, put_RequestTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_RequestTimeout )( 
             IHttp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(IHttp, SetHeader)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetHeader )( 
             IHttp * This,
             /* [in] */ BSTR Header,
             /* [in] */ BSTR Value);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LastResponseCode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastResponseCode )( 
             IHttp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, get_LastResponseText)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastResponseText )( 
             IHttp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(IHttp, UrlEncode)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *UrlEncode )( 
             IHttp * This,
             /* [in] */ BSTR In,
             /* [retval][out] */ BSTR *Out);
         
+        DECLSPEC_XFGVIRT(IHttp, Base64Encode)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Base64Encode )( 
             IHttp * This,
             /* [in] */ BSTR In,
             /* [retval][out] */ BSTR *Out);
         
+        DECLSPEC_XFGVIRT(IHttp, Base64EncodeFile)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Base64EncodeFile )( 
             IHttp * This,
             /* [in] */ BSTR Filename,
             /* [retval][out] */ BSTR *sOut);
         
+        DECLSPEC_XFGVIRT(IHttp, HexEncode)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *HexEncode )( 
             IHttp * This,
             /* [in] */ BSTR In,
@@ -11390,34 +12257,41 @@ EXTERN_C const IID IID_ISnpp;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISnppVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISnpp * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISnpp * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISnpp * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ISnpp * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ISnpp * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ISnpp * This,
             /* [in] */ REFIID riid,
@@ -11426,116 +12300,151 @@ EXTERN_C const IID IID_ISnpp;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISnpp * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             ISnpp * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISnpp, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             ISnpp * This);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             ISnpp * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(ISnpp, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ISnpp * This);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ISnpp * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(ISnpp, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ISnpp * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_Server)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Server )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_Server)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Server )( 
             ISnpp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_ServerPort)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ServerPort )( 
             ISnpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_ServerPort)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ServerPort )( 
             ISnpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_ServerTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ServerTimeout )( 
             ISnpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_ServerTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ServerTimeout )( 
             ISnpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_ProviderPassword)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderPassword )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_ProviderPassword)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProviderPassword )( 
             ISnpp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_ProviderUsername)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderUsername )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_ProviderUsername)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ProviderUsername )( 
             ISnpp * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_ProviderResponse)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ProviderResponse )( 
             ISnpp * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, get_MultilineEnabled)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultilineEnabled )( 
             ISnpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISnpp, put_MultilineEnabled)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MultilineEnabled )( 
             ISnpp * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISnpp, Send)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Send )( 
             ISnpp * This,
             /* [in] */ BSTR ToAddress,
@@ -11931,34 +12840,41 @@ EXTERN_C const IID IID_ISmpp;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISmppVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISmpp * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ISmpp * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ISmpp * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ISmpp * This,
             /* [in] */ REFIID riid,
@@ -11967,92 +12883,121 @@ EXTERN_C const IID IID_ISmpp;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISmpp * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             ISmpp * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISmpp, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             ISmpp * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             ISmpp * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LogPduDetails)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogPduDetails )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *LogDetails);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_LogPduDetails)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogPduDetails )( 
             ISmpp * This,
             /* [in] */ VARIANT_BOOL LogDetails);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LogLevel)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogLevel )( 
             ISmpp * This,
             /* [retval][out] */ LONG *pLevel);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_LogLevel)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogLevel )( 
             ISmpp * This,
             /* [in] */ LONG Level);
         
+        DECLSPEC_XFGVIRT(ISmpp, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             ISmpp * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(ISmpp, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ISmpp * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ISmpp * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(ISmpp, Connect)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Connect )( 
             ISmpp * This,
             /* [in] */ BSTR Host,
@@ -12060,6 +13005,7 @@ EXTERN_C const IID IID_ISmpp;
             /* [in] */ LONG Timeout,
             /* [defaultvalue][in] */ VARIANT_BOOL Secure);
         
+        DECLSPEC_XFGVIRT(ISmpp, Bind)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Bind )( 
             ISmpp * This,
             /* [in] */ LONG Type,
@@ -12072,234 +13018,291 @@ EXTERN_C const IID IID_ISmpp;
             /* [in] */ BSTR AddressRange,
             /* [in] */ LONG Timeout);
         
+        DECLSPEC_XFGVIRT(ISmpp, Unbind)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Unbind )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(ISmpp, Disconnect)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Disconnect )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(ISmpp, AddBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *AddBindTlv )( 
             ISmpp * This,
             /* [in] */ ITlv *Tlv);
         
+        DECLSPEC_XFGVIRT(ISmpp, DeleteBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DeleteBindTlv )( 
             ISmpp * This,
             /* [in] */ LONG lTag);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetFirstBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstBindTlv )( 
             ISmpp * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetNextBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextBindTlv )( 
             ISmpp * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetBindTlv )( 
             ISmpp * This,
             /* [in] */ LONG lTag,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmpp, SubmitSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SubmitSms )( 
             ISmpp * This,
             /* [in] */ IMessage *Sms,
             /* [defaultvalue][in] */ LONG MultipartFlag,
             /* [retval][out] */ LONG *Parts);
         
+        DECLSPEC_XFGVIRT(ISmpp, WaitForSmsUpdate)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *WaitForSmsUpdate )( 
             ISmpp * This,
             /* [defaultvalue][in] */ LONG TimeoutMs,
             /* [retval][out] */ VARIANT_BOOL *Updated);
         
+        DECLSPEC_XFGVIRT(ISmpp, FetchSmsUpdate)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FetchSmsUpdate )( 
             ISmpp * This,
             /* [retval][out] */ IMessage **Sms);
         
+        DECLSPEC_XFGVIRT(ISmpp, QuerySms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *QuerySms )( 
             ISmpp * This,
             /* [in] */ IMessage *Sms);
         
+        DECLSPEC_XFGVIRT(ISmpp, ReceiveMessage)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReceiveMessage )( 
             ISmpp * This,
             /* [retval][out] */ IMessage **Sms);
         
+        DECLSPEC_XFGVIRT(ISmpp, CountSmsReceived)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsReceived )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, CountSmsSubmitSpace)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsSubmitSpace )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmpp, CountSmsQuerySpace)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsQuerySpace )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_IsConnected)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsConnected )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_IsBound)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsBound )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MaxOutPendingPdus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxOutPendingPdus )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MaxOutPendingPdus)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxOutPendingPdus )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MaxSmsSubmissions)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsSubmissions )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MaxSmsSubmissions)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsSubmissions )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MaxSmsQueries)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsQueries )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MaxSmsQueries)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsQueries )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_PduTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PduTimeout )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_PduTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PduTimeout )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_EnquireInterval)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_EnquireInterval )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_EnquireInterval)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_EnquireInterval )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MultipartTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultipartTimeout )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MultipartTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MultipartTimeout )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_UseGsmEncoding)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UseGsmEncoding )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_UseGsmEncoding)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UseGsmEncoding )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_AssembleMultipart)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AssembleMultipart )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_AssembleMultipart)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AssembleMultipart )( 
             ISmpp * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MultipartMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultipartMode )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MultipartMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MultipartMode )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_ExtractApplicationPort)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractApplicationPort )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_ExtractApplicationPort)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractApplicationPort )( 
             ISmpp * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_MaxSmsReceived)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsReceived )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_MaxSmsReceived)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsReceived )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_SubmitMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SubmitMode )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_SubmitMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SubmitMode )( 
             ISmpp * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_KeepUnusedUdh)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_KeepUnusedUdh )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_KeepUnusedUdh)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_KeepUnusedUdh )( 
             ISmpp * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_ExtractLanguageShift)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractLanguageShift )( 
             ISmpp * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_ExtractLanguageShift)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractLanguageShift )( 
             ISmpp * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_LocalIpAddress)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LocalIpAddress )( 
             ISmpp * This,
             /* [retval][out] */ BSTR *Ip);
         
+        DECLSPEC_XFGVIRT(ISmpp, put_LocalIpAddress)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LocalIpAddress )( 
             ISmpp * This,
             /* [in] */ BSTR Ip);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_SmsSentPerSecond)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmsSentPerSecond )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmpp, get_SmsReceivedPerSecond)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmsReceivedPerSecond )( 
             ISmpp * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetFirstPart)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstPart )( 
             ISmpp * This,
             /* [in] */ IMessage *Sms,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetNextPart)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextPart )( 
             ISmpp * This,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, CountParts)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountParts )( 
             ISmpp * This,
             /* [in] */ IMessage *Sms,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmpp, AssembleSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *AssembleSms )( 
             ISmpp * This,
             /* [in] */ IMessage *Part);
         
+        DECLSPEC_XFGVIRT(ISmpp, GetAssembledSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetAssembledSms )( 
             ISmpp * This,
             /* [defaultvalue][in] */ VARIANT_BOOL Force,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, ResetSmsAssembler)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ResetSmsAssembler )( 
             ISmpp * This);
         
+        DECLSPEC_XFGVIRT(ISmpp, FetchNotUpdated)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FetchNotUpdated )( 
             ISmpp * This,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmpp, FetchNotSubmitted)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FetchNotSubmitted )( 
             ISmpp * This,
             /* [retval][out] */ IMessage **ppVal);
@@ -12830,34 +13833,41 @@ EXTERN_C const IID IID_ISmppSession;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISmppSessionVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISmppSession * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISmppSession * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISmppSession * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ISmppSession * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ISmppSession * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ISmppSession * This,
             /* [in] */ REFIID riid,
@@ -12866,315 +13876,398 @@ EXTERN_C const IID IID_ISmppSession;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISmppSession * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             ISmppSession * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             ISmppSession * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_LogPduDetails)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogPduDetails )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *LogDetails);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_LogPduDetails)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogPduDetails )( 
             ISmppSession * This,
             /* [in] */ VARIANT_BOOL LogDetails);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_LogLevel)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogLevel )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *pLevel);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_LogLevel)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogLevel )( 
             ISmppSession * This,
             /* [in] */ LONG Level);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ISmppSession * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_Ip)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Ip )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_Port)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Port )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_SystemId)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SystemId )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_Password)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Password )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_SystemType)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SystemType )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_AddressRange)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AddressRange )( 
             ISmppSession * This,
             /* [retval][out] */ BSTR *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_AddressRangeNpi)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AddressRangeNpi )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_AddressRangeTon)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AddressRangeTon )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_ConnectionState)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ConnectionState )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_RequestedBind)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_RequestedBind )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_Id)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Id )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, RespondToBind)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *RespondToBind )( 
             ISmppSession * This,
             /* [in] */ LONG Status);
         
+        DECLSPEC_XFGVIRT(ISmppSession, RespondToSubmitSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *RespondToSubmitSms )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, ReceiveSubmitSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReceiveSubmitSms )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, RespondToQuerySms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *RespondToQuerySms )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, ReceiveQuerySms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReceiveQuerySms )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, DeliverSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DeliverSms )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms,
             /* [defaultvalue][in] */ LONG MultipartFlag,
             /* [retval][out] */ LONG *Parts);
         
+        DECLSPEC_XFGVIRT(ISmppSession, DeliverReport)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *DeliverReport )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, ReceiveDeliverResponse)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *ReceiveDeliverResponse )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **Sms);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetFirstBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstBindTlv )( 
             ISmppSession * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetNextBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextBindTlv )( 
             ISmppSession * This,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetBindTlv)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetBindTlv )( 
             ISmppSession * This,
             /* [in] */ LONG lTag,
             /* [retval][out] */ ITlv **Tlv);
         
+        DECLSPEC_XFGVIRT(ISmppSession, Disconnect)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Disconnect )( 
             ISmppSession * This);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MaxSmsDeliveries)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsDeliveries )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MaxSmsDeliveries)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsDeliveries )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MaxSmsSubmission)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsSubmission )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MaxSmsSubmission)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsSubmission )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MaxSmsQueries)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxSmsQueries )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MaxSmsQueries)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxSmsQueries )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MaxOutPendingPdus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxOutPendingPdus )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MaxOutPendingPdus)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxOutPendingPdus )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_PduTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PduTimeout )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_PduTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PduTimeout )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_EnquireInterval)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_EnquireInterval )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_EnquireInterval)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_EnquireInterval )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MultipartTimeout)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultipartTimeout )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MultipartTimeout)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MultipartTimeout )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_UseGsmEncoding)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UseGsmEncoding )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_UseGsmEncoding)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UseGsmEncoding )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_MultipartMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MultipartMode )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_MultipartMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MultipartMode )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_ExtractApplicationPort)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractApplicationPort )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_ExtractApplicationPort)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractApplicationPort )( 
             ISmppSession * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_DeliverMode)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DeliverMode )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_DeliverMode)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DeliverMode )( 
             ISmppSession * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_KeepUnusedUdh)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_KeepUnusedUdh )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_KeepUnusedUdh)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_KeepUnusedUdh )( 
             ISmppSession * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_ExtractLanguageShift)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ExtractLanguageShift )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, put_ExtractLanguageShift)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ExtractLanguageShift )( 
             ISmppSession * This,
             /* [in] */ VARIANT_BOOL newVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, CountSmsSubmissions)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsSubmissions )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, CountSmsQueries)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsQueries )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, CountSmsDeliverySpace)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountSmsDeliverySpace )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_SmsSentPerSecond)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmsSentPerSecond )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_SmsReceivedPerSecond)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SmsReceivedPerSecond )( 
             ISmppSession * This,
             /* [retval][out] */ LONG *Count);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetFirstPart)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstPart )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms,
             /* [retval][out] */ IMessage **pVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetNextPart)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextPart )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **pVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, CountParts)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *CountParts )( 
             ISmppSession * This,
             /* [in] */ IMessage *Sms,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, AssembleSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *AssembleSms )( 
             ISmppSession * This,
             /* [in] */ IMessage *Part);
         
+        DECLSPEC_XFGVIRT(ISmppSession, GetAssembledSms)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetAssembledSms )( 
             ISmppSession * This,
             /* [in] */ VARIANT_BOOL Force,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, FetchNotResponded)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FetchNotResponded )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, FetchNotDelivered)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FetchNotDelivered )( 
             ISmppSession * This,
             /* [retval][out] */ IMessage **ppVal);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_IsConnected)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsConnected )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmppSession, get_IsBound)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsBound )( 
             ISmppSession * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
@@ -13528,7 +14621,7 @@ EXTERN_C const IID IID_ISmppServer;
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Start( 
             /* [in] */ LONG Port,
             /* [defaultvalue][in] */ LONG IpVersion = 2,
-            /* [defaultvalue][in] */ BSTR Certificate = L"") = 0;
+            /* [defaultvalue][in] */ BSTR Certificate = (BSTR)L"") = 0;
         
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Stop( void) = 0;
         
@@ -13575,34 +14668,41 @@ EXTERN_C const IID IID_ISmppServer;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ISmppServerVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ISmppServer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ISmppServer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ISmppServer * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ISmppServer * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ISmppServer * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ISmppServer * This,
             /* [in] */ REFIID riid,
@@ -13611,159 +14711,204 @@ EXTERN_C const IID IID_ISmppServer;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ISmppServer * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_Version)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Version )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Version);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_Build)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Build )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Build);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_Module)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Module )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Module);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_LicenseStatus)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseStatus )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *LicenseStatus);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_LicenseKey)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LicenseKey )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_LicenseKey)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LicenseKey )( 
             ISmppServer * This,
             /* [in] */ BSTR LicenseKey);
         
+        DECLSPEC_XFGVIRT(ISmppServer, SaveLicenseKey)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SaveLicenseKey )( 
             ISmppServer * This);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_LogFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LogFile )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Logfile);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_LogFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LogFile )( 
             ISmppServer * This,
             /* [in] */ BSTR Logfile);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_ActivityFile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ActivityFile )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_ActivityFile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ActivityFile )( 
             ISmppServer * This,
             /* [in] */ BSTR ActivityFile);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_CertificateStore)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CertificateStore )( 
             ISmppServer * This,
             /* [retval][out] */ LONG *CertificateStore);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_CertificateStore)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_CertificateStore )( 
             ISmppServer * This,
             /* [in] */ LONG CertificateStore);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_ListenIpv4)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ListenIpv4 )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_ListenIpv4)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ListenIpv4 )( 
             ISmppServer * This,
             /* [in] */ BSTR Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_ListenIpv6)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ListenIpv6 )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_ListenIpv6)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ListenIpv6 )( 
             ISmppServer * This,
             /* [in] */ BSTR Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, Sleep)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Sleep )( 
             ISmppServer * This,
             LONG Ms);
         
+        DECLSPEC_XFGVIRT(ISmppServer, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ISmppServer * This);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ISmppServer * This,
             /* [retval][out] */ LONG *LastError);
         
+        DECLSPEC_XFGVIRT(ISmppServer, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ISmppServer * This,
             /* [in] */ LONG ErrorCode,
             /* [retval][out] */ BSTR *Description);
         
+        DECLSPEC_XFGVIRT(ISmppServer, Start)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Start )( 
             ISmppServer * This,
             /* [in] */ LONG Port,
             /* [defaultvalue][in] */ LONG IpVersion,
             /* [defaultvalue][in] */ BSTR Certificate);
         
+        DECLSPEC_XFGVIRT(ISmppServer, Stop)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Stop )( 
             ISmppServer * This);
         
+        DECLSPEC_XFGVIRT(ISmppServer, GetFirstSession)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetFirstSession )( 
             ISmppServer * This,
             /* [retval][out] */ ISmppSession **Session);
         
+        DECLSPEC_XFGVIRT(ISmppServer, GetNextSession)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetNextSession )( 
             ISmppServer * This,
             /* [retval][out] */ ISmppSession **Session);
         
+        DECLSPEC_XFGVIRT(ISmppServer, GetSession)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetSession )( 
             ISmppServer * This,
             /* [in] */ LONG Id,
             /* [retval][out] */ ISmppSession **Session);
         
+        DECLSPEC_XFGVIRT(ISmppServer, GetClosedSession)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetClosedSession )( 
             ISmppServer * This,
             /* [retval][out] */ ISmppSession **Session);
         
+        DECLSPEC_XFGVIRT(ISmppServer, FindFirstMyServerCertificate)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindFirstMyServerCertificate )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Certificate);
         
+        DECLSPEC_XFGVIRT(ISmppServer, FindNextMyServerCertificate)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindNextMyServerCertificate )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Certificate);
         
+        DECLSPEC_XFGVIRT(ISmppServer, FindFirstLocalIpAddress)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindFirstLocalIpAddress )( 
             ISmppServer * This,
             /* [defaultvalue][in] */ LONG IpVersion,
             /* [retval][out] */ BSTR *Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, FindNextLocalIpAddress)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *FindNextLocalIpAddress )( 
             ISmppServer * This,
             /* [retval][out] */ BSTR *Ip);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_MaxClosedSessions)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MaxClosedSessions )( 
             ISmppServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_MaxClosedSessions)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MaxClosedSessions )( 
             ISmppServer * This,
             /* [in] */ LONG Val);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_IsStarted)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsStarted )( 
             ISmppServer * This,
             /* [retval][out] */ VARIANT_BOOL *Val);
         
+        DECLSPEC_XFGVIRT(ISmppServer, get_LastReference)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastReference )( 
             ISmppServer * This,
             /* [retval][out] */ LONG *Val);
         
+        DECLSPEC_XFGVIRT(ISmppServer, put_LastReference)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LastReference )( 
             ISmppServer * This,
             /* [in] */ LONG newVal);
@@ -13972,34 +15117,41 @@ EXTERN_C const IID IID_ITemplateWapPush;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ITemplateWapPushVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ITemplateWapPush * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ITemplateWapPush * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ITemplateWapPush * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ITemplateWapPush * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ITemplateWapPush * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ITemplateWapPush * This,
             /* [in] */ REFIID riid,
@@ -14008,57 +15160,77 @@ EXTERN_C const IID IID_ITemplateWapPush;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ITemplateWapPush * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, get_Url)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Url )( 
             ITemplateWapPush * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, put_Url)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Url )( 
             ITemplateWapPush * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, get_Description)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Description )( 
             ITemplateWapPush * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, put_Description)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Description )( 
             ITemplateWapPush * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, get_SignalAction)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SignalAction )( 
             ITemplateWapPush * This,
             /* [retval][out] */ LONG *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, put_SignalAction)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_SignalAction )( 
             ITemplateWapPush * This,
             /* [in] */ LONG newVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, get_Data)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Data )( 
             ITemplateWapPush * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ITemplateWapPush * This,
             /* [retval][out] */ LONG *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, Encode)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Encode )( 
             ITemplateWapPush * This);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ITemplateWapPush * This,
             /* [in] */ LONG lCode,
             /* [retval][out] */ BSTR *strDescription);
         
+        DECLSPEC_XFGVIRT(ITemplateWapPush, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ITemplateWapPush * This);
         
@@ -14233,34 +15405,41 @@ EXTERN_C const IID IID_ITemplatevCard;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct ITemplatevCardVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ITemplatevCard * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ITemplatevCard * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ITemplatevCard * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ITemplatevCard * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ITemplatevCard * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ITemplatevCard * This,
             /* [in] */ REFIID riid,
@@ -14269,112 +15448,146 @@ EXTERN_C const IID IID_ITemplatevCard;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ITemplatevCard * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, Clear)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Clear )( 
             ITemplatevCard * This);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, GetErrorDescription)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *GetErrorDescription )( 
             ITemplatevCard * This,
             /* [in] */ LONG lError,
             /* [retval][out] */ BSTR *strDescription);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Url)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Url )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Url)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Url )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Title)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Title )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Title)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Title )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_EMail)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_EMail )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_EMail)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_EMail )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Fax)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Fax )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Fax)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Fax )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Pager)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Pager )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Pager)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Pager )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Mobile)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Mobile )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Mobile)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Mobile )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_PhoneHome)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PhoneHome )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_PhoneHome)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PhoneHome )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_PhoneWork)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_PhoneWork )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_PhoneWork)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_PhoneWork )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Phone)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Phone )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Phone)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Phone )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Name)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Name )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, put_Name)
         /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Name )( 
             ITemplatevCard * This,
             /* [in] */ BSTR newVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, Encode)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Encode )( 
             ITemplatevCard * This);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_Data)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Data )( 
             ITemplatevCard * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ITemplatevCard, get_LastError)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LastError )( 
             ITemplatevCard * This,
             /* [retval][out] */ LONG *pVal);
@@ -14524,34 +15737,41 @@ EXTERN_C const IID IID_IDemoAccount;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IDemoAccountVtbl
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDemoAccount * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDemoAccount * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDemoAccount * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IDemoAccount * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IDemoAccount * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IDemoAccount * This,
             /* [in] */ REFIID riid,
@@ -14560,21 +15780,32 @@ EXTERN_C const IID IID_IDemoAccount;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IDemoAccount * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IDemoAccount, get_SystemId)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_SystemId )( 
             IDemoAccount * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(IDemoAccount, get_Password)
         /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Password )( 
             IDemoAccount * This,
             /* [retval][out] */ BSTR *pVal);
@@ -14777,6 +16008,11 @@ unsigned long             __RPC_USER  BSTR_UserSize(     unsigned long *, unsign
 unsigned char * __RPC_USER  BSTR_UserMarshal(  unsigned long *, unsigned char *, BSTR * ); 
 unsigned char * __RPC_USER  BSTR_UserUnmarshal(unsigned long *, unsigned char *, BSTR * ); 
 void                      __RPC_USER  BSTR_UserFree(     unsigned long *, BSTR * ); 
+
+unsigned long             __RPC_USER  BSTR_UserSize64(     unsigned long *, unsigned long            , BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserMarshal64(  unsigned long *, unsigned char *, BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserUnmarshal64(unsigned long *, unsigned char *, BSTR * ); 
+void                      __RPC_USER  BSTR_UserFree64(     unsigned long *, BSTR * ); 
 
 /* end of Additional Prototypes */
 

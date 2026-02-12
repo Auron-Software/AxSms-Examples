@@ -12,14 +12,14 @@ unit AxSms_TLB;
 // ************************************************************************ //
 
 // $Rev: 17244 $
-// File generated on 3/23/2022 4:13:01 AM from Type Library described below.
+// File generated on 2/11/2026 8:01:12 AM from Type Library described below.
 
 // ************************************************************************  //
 // Type Lib: G:\AxSms\VisualC\AxSms\Release32\AxSms32.dll (1)
 // LIBID: {B00F4729-F464-4690-88A0-E059489AF063}
 // LCID: 0
 // Helpfile: 
-// HelpString: Auron SMS Component 7.0 Type Library
+// HelpString: Auron SMS Component 7.3 Type Library
 // DepndLst: 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 // Errors:
